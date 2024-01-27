@@ -13,14 +13,14 @@ function Forgotpassword() {
     a.preventDefault();
     console.log(Data);
     if (Data.newpassword !== Data.confirmnewpassword) {
-      alert("Password not matched");
+      alert("Password not matched...");
     } else {
       alert("Password changed successfully");
     }
   };
   return (
     <div
-      class="form-control d-flex mx-auto" 
+      class="form-control d-flex mx-auto"
       style={{
         width: "25rem",
         height: "18rem",
@@ -29,7 +29,6 @@ function Forgotpassword() {
         backgroundColor: "lightgrey",
       }}
     >
-    
       <form onSubmit={handleSubmit}>
         <div class="p-2 w-100">
           {" "}
@@ -114,7 +113,6 @@ function Forgotpassword() {
             marginLeft: "10rem",
             color: "blue",
           }}
-          
         >
           Change
         </button>

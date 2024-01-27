@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from 'react';
-import Forgotpassword from './Forgotpassword';
+import Forgotpassword from './components/Forgotpassword';
 
 function App() {
   return (
