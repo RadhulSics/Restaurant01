@@ -2,8 +2,8 @@
 // // import './App.css';
 import React from 'react';
 
-import Projectreg from "./Component/Projectreg";
-import "./Component/Style/Projectreg.css";
+import Projectreg from "./component/Projectreg";
+import "./component/Style/Projectreg.css";
 
 function App() {
   return (
