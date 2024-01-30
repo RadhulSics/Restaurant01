@@ -2,18 +2,13 @@
 // // import './App.css';
 import React from 'react';
 
-import Projectreg from "./component/Projectreg";
-import "./component/Style/Projectreg.css";
-import Forgotpassword from './components/Forgotpassword';
+import Projectreg from "./components/Projectreg";
+import "./components/Projectreg.css";
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <Routes>
-        <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
-      </Routes>
-        </BrowserRouter>
-    <Projectreg/>
+      <Projectreg/>
     
      
     </div>
