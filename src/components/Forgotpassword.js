@@ -22,19 +22,20 @@ function Forgotpassword() {
     <div
       class="form-control d-flex mx-auto"
       style={{
-        width: "25rem",
-        height: "18rem",
+        width: "30rem",
+        height: "20rem",
         marginTop: "8rem",
-        marginLeft: "32rem",
-        backgroundColor: "lightgrey",
+        marginLeft: "35rem",
+        backgroundColor: "light",
       }}
     >
+      
       <form onSubmit={handleSubmit}>
         <div class="p-2 w-100">
           {" "}
           <h2
             class="text-center mt-3 mb-3"
-            style={{ marginLeft: "3rem", marginTop: "1.5rem", color: "blue" }}
+            style={{ marginLeft: "3rem", marginTop: "1.5rem", color: "White" }}
           >
             Customer Reset Password
           </h2>
@@ -43,7 +44,7 @@ function Forgotpassword() {
         <div class="d-flex p-2">
           <label
             class="form-label mt-2 w-50"
-            style={{ marginLeft: "1rem", color: "blue" }}
+            style={{ marginLeft: "1rem", color: "White" }}
           >
             Email:
           </label>
@@ -51,7 +52,7 @@ function Forgotpassword() {
             class="form-control"
             type="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Enter your valid email"
             onChange={handleChange}
             style={{
               display: "flex",
@@ -65,7 +66,7 @@ function Forgotpassword() {
         <div class="d-flex p-2">
           <label
             class="form-label mt-2 w-50"
-            style={{ marginLeft: "1rem", color: "blue" }}
+            style={{ marginLeft: "1rem", color: "White" }}
           >
             Set New Password:
           </label>
@@ -88,7 +89,7 @@ function Forgotpassword() {
         <div class="d-flex p-2">
           <label
             class="form-label mt-2 w-50"
-            style={{ marginLeft: "1rem", color: "blue" }}
+            style={{ marginLeft: "1rem", color: "White" }}
           >
             Confirm New Password:
           </label>
@@ -109,9 +110,9 @@ function Forgotpassword() {
         <br />
         <button
           style={{
-            backgroundColor: "primary",
+            backgroundColor: "Red",
             marginLeft: "10rem",
-            color: "blue",
+            color: "black",
           }}
         >
           Change
