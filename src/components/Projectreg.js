@@ -24,8 +24,8 @@ function Projectreg() {
     }
   }
   return (
-   
-    <div class="container1"
+    <div class=" Projectregmaindiv ">
+    <div class=" container1   "
     //   class="form-control d-flex mx-auto"
     //   style={{ width: "30rem", marginTop: "8rem", backgroundColor:"rgba" }}
     >
@@ -112,7 +112,7 @@ function Projectreg() {
         </div>
       </form>
     </div>
-    
+    </div>
   );
 }
 
