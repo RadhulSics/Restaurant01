@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './Forgotpassword.css'
 function Forgotpassword() {
   const [Data, setData] = useState({
     email: "",
@@ -20,18 +20,16 @@ function Forgotpassword() {
   };
   return (
     <div
-      class="form-control d-flex mx-auto"
+      class="form-control d-flex mx-auto forgotpasswordmaindiv "
       style={{
-        width: "30rem",
-        height: "20rem",
-        marginTop: "8rem",
-        marginLeft: "35rem",
-        backgroundColor: "light",
+        width: "100%",
+        height: "100vh",
+        
       }}
     >
       
       <form onSubmit={handleSubmit}>
-        <div class="p-2 w-100">
+        <div class="p-2 w-100 a">
           {" "}
           <h2
             class="text-center mt-3 mb-3"
