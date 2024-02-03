@@ -11,23 +11,25 @@ import {BrowserRouter,Route,Routes} from"react-router-dom";
 
 
 
->>>>>>>>> Temporary merge branch 2
+
 
 function App() {
   return (
     <div className="App">
-<<<<<<<<< Temporary merge branch 1
-      <Projectreg/>
-=========
+
+      
+
       <BrowserRouter>
       <Routes>
         <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
+        <Route path='/Projectreg'element={<Projectreg/>}/>
       </Routes>
       </BrowserRouter>
-      {/* <Forgotpassword/> */}
+     
+     
 
        
->>>>>>>>> Temporary merge branch 2
+
     
   
     </div>
