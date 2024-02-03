@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Forgotpassword from './components/Forgotpassword';
+import './components/Forgotpassword.css'
 import {BrowserRouter,Route,Routes} from"react-router-dom";
 
 
