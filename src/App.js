@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
 import React from 'react';
 
 import Projectreg from "./components/Projectreg";
@@ -20,7 +18,7 @@ function App() {
       <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
       </Routes>
       </BrowserRouter>
-      {/* <Forgotpassword/> */}
+     
 
        
     
