@@ -20,16 +20,18 @@ function Forgotpassword() {
   };
   return (
     <div
-      class="form-control d-flex mx-auto forgotpasswordmaindiv "
+      class="form-control d-flex mx-auto forgotpasswordmaindiv"
       style={{
-        width: "100%",
-        height: "100vh",
-        
+        width: "30rem",
+        height: "20rem",
+        marginTop: "8rem",
+        marginLeft: "35rem",
+        backgroundColor: "light",
       }}
     >
       
       <form onSubmit={handleSubmit}>
-        <div class="p-2 w-100 a">
+        <div class="p-2 w-100">
           {" "}
           <h2
             class="text-center mt-3 mb-3"
