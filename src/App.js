@@ -8,17 +8,22 @@ import './components/Forgotpassword.css'
 import {BrowserRouter,Route,Routes} from"react-router-dom";
 
 
+
+
+
 function App() {
   return (
     <div className="App">
-      <Projectreg/>
+
+      
+
       <BrowserRouter>
       <Routes>
-
-      <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
+        <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
+        <Route path='/Projectreg'element={<Projectreg/>}/>
       </Routes>
       </BrowserRouter>
-     
+      {/* <Forgotpassword/> */}
 
        
     
