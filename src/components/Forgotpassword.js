@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './Forgotpassword.css'
 function Forgotpassword() {
   const [Data, setData] = useState({
     email: "",
@@ -20,7 +20,7 @@ function Forgotpassword() {
   };
   return (
     <div
-      class="form-control d-flex mx-auto"
+      class="form-control d-flex mx-auto forgotpasswordmaindiv"
       style={{
         width: "30rem",
         height: "20rem",
