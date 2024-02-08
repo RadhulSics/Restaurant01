@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Forgotpassword.css'
+
 function Forgotpassword() {
   const [Data, setData] = useState({
     email: "",
@@ -19,12 +19,12 @@ function Forgotpassword() {
     }
   };
   return (
+    <div class="forgotpasswordmaindiv" >
     <div
-      class="form-control d-flex mx-auto forgotpasswordmaindiv"
+      class="form-control d-flex mx-auto "
       style={{
         width: "30rem",
-        height: "20rem",
-        marginTop: "8rem",
+        height: "30rem",
         marginLeft: "35rem",
         backgroundColor: "light",
       }}
@@ -35,7 +35,7 @@ function Forgotpassword() {
           {" "}
           <h2
             class="text-center mt-3 mb-3"
-            style={{ marginLeft: "3rem", marginTop: "1.5rem", color: "White" }}
+            style={{ marginLeft: "3rem", marginTop: "1.5rem", color: "black" }}
           >
             Customer Reset Password
           </h2>
@@ -44,7 +44,7 @@ function Forgotpassword() {
         <div class="d-flex p-2">
           <label
             class="form-label mt-2 w-50"
-            style={{ marginLeft: "1rem", color: "White" }}
+            style={{ marginLeft: "1rem", color: "black" }}
           >
             Email:
           </label>
@@ -52,7 +52,7 @@ function Forgotpassword() {
             class="form-control"
             type="email"
             name="email"
-            placeholder="Enter your valid email"
+            placeholder="Enter your validemail"
             onChange={handleChange}
             style={{
               display: "flex",
@@ -66,7 +66,7 @@ function Forgotpassword() {
         <div class="d-flex p-2">
           <label
             class="form-label mt-2 w-50"
-            style={{ marginLeft: "1rem", color: "White" }}
+            style={{ marginLeft: "1rem", color: "black" }}
           >
             Set New Password:
           </label>
@@ -89,7 +89,7 @@ function Forgotpassword() {
         <div class="d-flex p-2">
           <label
             class="form-label mt-2 w-50"
-            style={{ marginLeft: "1rem", color: "White" }}
+            style={{ marginLeft: "1rem", color: "black" }}
           >
             Confirm New Password:
           </label>
@@ -119,6 +119,7 @@ function Forgotpassword() {
         </button>
         <br />
       </form>
+    </div>
     </div>
   );
 }
