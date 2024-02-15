@@ -12,6 +12,7 @@ import "./components/Forgotpassword.css";
 
 
 import Restaurantgallery from "./components/Restaurantgallery";
+import Customerviewmenu from "./components/Customerviewmenu.js";
 
 
 function App() {
@@ -19,13 +20,16 @@ function App() {
     <div className="App">
      
       <BrowserRouter>
+      
       <Nav/>
         <Routes>
           <Route path="/Forgotpassword" element={<Forgotpassword />} />
           <Route path="/Projectreg" element={<Projectreg />} />
           <Route path="/Restaurantgallery" element={<Restaurantgallery />} />
+          <Route path="/Customerviewmenu" element={<Customerviewmenu/>}/>
         </Routes>
       </BrowserRouter>
+      
     </div>
   );
 }

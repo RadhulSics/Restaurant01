@@ -26,7 +26,7 @@ function Forgotpassword() {
         width: "30rem",
         height: "30rem",
         marginLeft: "35rem",
-        backgroundColor: "light",
+        backgroundColor: "lightgray",
       }}
     >
       

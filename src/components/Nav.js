@@ -1,12 +1,12 @@
 import React from "react";
-
+import "../components/Nav.css"
 import { Link } from "react-router-dom";
 function Nav() {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary " id="nav1" >
         <div class="container-fluid">
-          <a class="navbar-brand">
+          <a class="navbar-brand" style={{color:"white"}}>
             RESTUARANT PAGE
           </a>
           <button
@@ -22,11 +22,12 @@ function Nav() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item" >
                 <Link
                   to="/Restaurantgallery"
                   class="nav-link active"
-                  aria-current="page"
+                  aria-current="page" style={{color:"white"}}
+
                 >
                   HOME
                 </Link>
@@ -36,17 +37,19 @@ function Nav() {
                   to="/Projectreg"
                   class="nav-link active"
                   aria-current="page"
+                  style={{color:"white"}}
                 >
                   NEW REGISTRATION
                 </Link>
               </li>
               <li class="nav-item">
                 <Link
-                  to="/Forgotpassword"
+                  to="/Customerviewmenu"
                   class="nav-link active"
                   aria-current="page"
+                  style={{color:"white"}}
                 >
-                  FORGOT PASSWORD
+                  MENU
                 </Link>
               </li>
             </ul>
@@ -57,7 +60,7 @@ function Nav() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button class="btn btn-outline-success" type="submit" style={{color:"white"}}>
                 Search
               </button>
             </form>
