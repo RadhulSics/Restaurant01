@@ -18,13 +18,18 @@ function App() {
 
       
 
+
       <BrowserRouter>
+                  <Nav/>
+
       <Routes>
         <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
         <Route path='/Projectreg'element={<Projectreg/>}/>
         <Route path='/Restaurantgallery'element={<Restaurantgallery/>}/>
+          <Route path="/Customerviewmenu"  element={<Customerviewmenu/>}/>
 
       </Routes>
+
       </BrowserRouter>
      
     </div>
