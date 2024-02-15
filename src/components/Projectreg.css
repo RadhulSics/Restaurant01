@@ -2,13 +2,15 @@
     background-image:url("https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    /* height: 800px; */
+
    
  }
  h1{
      font-family:Arial, Helvetica, sans-serif;
      text-align: center;
      font-size: 32px;
-     color: #272525;
+     color: #a40e0e;
      text-decoration: underline;
  }
  .container1{
@@ -16,7 +18,6 @@
      width: 30rem;
      height: 37rem;
      border: 1px solid rgba(0, 0, 0, 0);
-     margin-top: 2rem;
      margin-left: 28rem;
      
  }
@@ -25,5 +26,6 @@
      width: 6rem;
      margin-left:10rem ;
  }
+ 
  
  
