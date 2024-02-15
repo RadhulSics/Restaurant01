@@ -29,7 +29,7 @@ function App() {
           <Route path="/Customerviewmenu" element={<Customerviewmenu/>}/>
         </Routes>
       </BrowserRouter>
-      {/* Hai */}
+     
     </div>
   );
 }
