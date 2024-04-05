@@ -1,48 +1,46 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Forgotpassword() {
+function Customerlogin() {
+  const navigate=useNavigate()
   const [data, setData] = useState({
     email: "",
-    newpassword: "",
-    comfirmnewpassword: "",
+    password: "",
   });
-  const handleChange = (a) => {
-    setData({ ...data, [a.target.name]: a.target.value });
-  };
-  const handleSubmit = (a) => {
-    a.preventDefault();
-    if (data.password === data.confirmpassword) {
-      console.log(data);
-      axios
-        .post("http://localhost:3000/forgotPassword", data)
-        .then((res) => {
-          console.log(res);
-          if (res.data.status === 200) {
-            alert(res.data.msg);
-          } else {
-            alert(res.data.msg);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+  function Change(e) {
+    setData({ ...data, [e.target.name]: e.target.value });
+  }
+  async function submit(e) {
+    e.preventDefault();
+    const result = await axios.post(
+      "http://localhost:3000/customerlogin",
+      data
+    );
+    console.log(result);
+    if (result.data.status === 200) {
+      alert("Login successful");
+      console.log("user data",result.data.data);
+      localStorage.setItem('userid',result.data.data._id)
+      navigate('/Customerhomepage')
     } else {
-      alert("Password and Confirm password must be same");
+      alert("Login failed");
     }
-  };
+    console.log("result", result);
+  }
+
   return (
-    <div class="forgotpasswordmaindiv">
+    <div class="customerlogin">
       <div
         class="form-control d-flex mx-auto "
         style={{
           width: "30rem",
-          height: "30rem",
+          height: "22rem",
           marginLeft: "35rem",
           backgroundColor: "lightgray",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submit}>
           <div class="p-2 w-100">
             {" "}
             <h2
@@ -53,7 +51,7 @@ function Forgotpassword() {
                 color: "black",
               }}
             >
-              Customer Reset Password
+              LOG IN
             </h2>
           </div>
 
@@ -69,7 +67,7 @@ function Forgotpassword() {
               type="email"
               name="email"
               placeholder="Enter your valid email"
-              onChange={handleChange}
+              onChange={Change}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -84,14 +82,14 @@ function Forgotpassword() {
               class="form-label mt-2 w-50"
               style={{ marginLeft: "1rem", color: "black" }}
             >
-              Set New Password:
+              Password:
             </label>
             <input
               class="form-control"
               type="password"
-              name="newpassword"
-              placeholder="Enter your new password"
-              onChange={handleChange}
+              name="password"
+              placeholder="Enter your password"
+              onChange={Change}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -102,42 +100,24 @@ function Forgotpassword() {
           </div>
           <br />
 
-          <div class="d-flex p-2">
-            <label
-              class="form-label mt-2 w-50"
-              style={{ marginLeft: "1rem", color: "black" }}
-            >
-              Confirm New Password:
-            </label>
-            <input
-              class="form-control"
-              type="password"
-              name="confirmnewpassword"
-              placeholder="Re-enter your new password"
-              onChange={handleChange}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginLeft: "5rem",
-              }}
-              required
-            ></input>
-          </div>
           <br />
           <button
             style={{
               backgroundColor: "Red",
-              marginLeft: "10rem",
+              marginLeft: "13rem",
               color: "black",
             }}
           >
-            Change
+            Log in
           </button>
           <br />
+          <p style={{ marginLeft: "10rem" }}>
+            <a href="/Forgotpassword">Forgot your Password?</a>
+          </p>
         </form>
       </div>
     </div>
   );
 }
 
-export default Forgotpassword;
+export default Customerlogin;
