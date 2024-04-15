@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
+
 function Projectreg() {
-  const navigate=useNavigate()
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
@@ -12,29 +11,30 @@ function Projectreg() {
     gender: "",
     condition: "",
   });
+  
   function Change(e) {
     setState({ ...state, [e.target.name]: e.target.value });
-   
+     
   }
-  async function Submit(e) {
+ async function Submit(e) {
     e.preventDefault();
+    
     // alert("You registered succesfully")
     console.log(state);
     if (state.password !== state.confirmpassword) {
       alert("Password not matched");
     } else {
-      alert("You registered succesfully")
-      const result=await axios.post("http://localhost:5000/addschema",state)
-      console.log("result",result)
-      navigate('/Customerviewmenu')
+      alert("You registered succesfully");
+      const result=await axios.post("http://localhost:3000/addSchema",state)
+      console.log("result",result);
     }
   }
   return (
     <div class=" Projectregmaindiv ">
-    <div class=" container1   ">
-      {/* <div class="form-control d-flex mx-auto">
-      style={{ width: "30rem", marginTop: "8rem", backgroundColor:"rgba" }}</div> */}
-    
+    <div class=" container1   "
+    //   class="form-control d-flex mx-auto"
+    //   style={{ width: "30rem", marginTop: "8rem", backgroundColor:"rgba" }}
+    >
       
       <form onSubmit={Submit}>
       <h1>Create Your Account</h1>
@@ -100,6 +100,8 @@ function Projectreg() {
           <input type="radio" name="gender" onChange={Change}required></input>{" "}
           <label class="d-flex p-2">Female</label>
         </div>
+        
+
 
         <div class="text-center mt-3 mb-3">
           <input
@@ -109,11 +111,9 @@ function Projectreg() {
             required
           ></input>
           <label>I accept Terms and condition</label><br/>
-          {/* <button id="butt2" type="button" class="btn btn-primary">Register</button> */}
-          {/* <button style={{ backgroundColor: "blue" }}>Register</button> */}
-          {/* <button type="button" class="btn btn-primary" >Register</button> */}
+         
           <button  onClick={Change} className='btn btn-primary' type="Register">Register</button><br/>
-          <p>already have an account?<a href="#">Log in</a></p>
+          <p>already have an account?<a href="/Customerlogin">Log in</a></p>
          
         </div>
       </form>

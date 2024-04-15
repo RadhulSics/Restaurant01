@@ -1,7 +1,9 @@
 import React from "react";
 import "../components/Nav.css"
 import { Link } from "react-router-dom";
+
 function Nav() {
+  
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary " id="nav1" >

@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Projectreg from "./components/Projectreg";
 import "./components/Projectreg.css";
 import Forgotpassword from './components/Forgotpassword';
-import './components/Forgotpassword.css'
+
 import {BrowserRouter,Route,Routes} from"react-router-dom";
 import Restaurantgallery from './components/Restaurantgallery';
 import Customerviewmenu from './components/Customerviewmenu';
@@ -15,6 +15,9 @@ import './components/Adlogin.css';
 import Admindashboard from './components/Admindashboard';
 import './components/Admindashboard.css';
 import Adminaddmenu from './components/Adminaddmenu';
+import Customerlogin from './components/Customerlogin';
+import './components/Customerlogin.css';
+import Customerhomepage from './components/Customerhomepage';
 function App() {
   return (
     <div className="App">
@@ -27,6 +30,9 @@ function App() {
         <Route path='/Customerviewmenu'element={<Customerviewmenu/>}/>
         <Route path='/Adlogin'element={<Adlogin/>}/>
         <Route path='/Admindashboard'element={<Admindashboard/>}/>
+        <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
+        <Route path='/Customerlogin'element={<Customerlogin/>}/>
+        <Route path='/Customerhomepage'element={<Customerhomepage/>}/>
         <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
       </Routes>
       </BrowserRouter>

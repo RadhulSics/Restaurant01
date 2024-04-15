@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+
 function Adminaddmenu() {
   const[data,setData]=useState({
     foodname: "",
@@ -7,7 +8,12 @@ function Adminaddmenu() {
     price: "",
     amount:0
   })
+  
+
   const handleChange=(a)=>{
+
+    // setData({ ...data, [a.target.name]: a.target.value });
+    // console.log(data);
     if (a.target.name === "image") {
       const file = a.target.files[0];
       setData({ ...data, image: file });
@@ -24,18 +30,10 @@ function Adminaddmenu() {
         "Content-Type": "multipart/form-data",
       },
     })
-    .then((res) => {
-      console.log(res);
-      if (res.data.status === 200) {
-        alert(res.data.msg);
-      } else {
-        alert(res.data.msg);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+    
   }
+  
   return (
     <div
       className="mx-auto shadow-lg mb-5"
@@ -48,7 +46,11 @@ function Adminaddmenu() {
     >
       <form className="form-control d-block bg-warning-subtle">
         <div>
+
           <h2 className="text-center mt-3 mb-3">Add food menu</h2>
+
+          <h2 className="text-center mt-3 mb-3">Add food items</h2>
+
         </div>
         <div className="d-flex p-2">
           <label className="form-label" style={{ width: "7rem" }}>

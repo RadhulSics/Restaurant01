@@ -6,12 +6,14 @@ function Adlogin() {
     username:"",
     password: ""
   })
+
   const HandleChange=(e)=>{
     setForm({...form,[e.target.name]: e.target.value})
   }
+  
   const SubmitData=(e)=>{
     e.preventDefault();
-    if(form.username=="admin@gmail.com" && form.password=="admin123"){
+    if(form.username==="admin@gmail.com" && form.password==="admin123"){
         alert("login successfully")
     }
     else{
