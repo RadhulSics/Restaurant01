@@ -12,7 +12,7 @@ import  Nav from './components/Nav';
 import './components/Nav.css';
 import Adlogin from './components/Adlogin';
 import './components/Adlogin.css';
-import Admindashboard from './Admindashboard';
+import Admindashboard from './components/Admindashboard';
 import './components/Admindashboard.css';
 import Adminaddmenu from './components/Adminaddmenu';
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
       </Routes>
       </BrowserRouter>
-      {/* Hai */}
+     
     </div>
   );
 }

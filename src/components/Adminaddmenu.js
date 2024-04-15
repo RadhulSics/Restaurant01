@@ -8,9 +8,6 @@ function Adminaddmenu() {
     amount:0
   })
   const handleChange=(a)=>{
-
-    // setData({ ...data, [a.target.name]: a.target.value });
-    // console.log(data);
     if (a.target.name === "image") {
       const file = a.target.files[0];
       setData({ ...data, image: file });
@@ -27,6 +24,17 @@ function Adminaddmenu() {
         "Content-Type": "multipart/form-data",
       },
     })
+    .then((res) => {
+      console.log(res);
+      if (res.data.status === 200) {
+        alert(res.data.msg);
+      } else {
+        alert(res.data.msg);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
   return (
     <div
