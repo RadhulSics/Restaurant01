@@ -12,7 +12,7 @@ function Forgotpassword() {
   };
   const handleSubmit = (a) => {
     a.preventDefault();
-    if (data.password === data.confirmpassword) {
+    if (data.newpassword === data.confirmnewpassword) {
       console.log(data);
       axios
         .post("http://localhost:3000/forgotPassword", data)
@@ -31,6 +31,7 @@ function Forgotpassword() {
       alert("Password and Confirm password must be same");
     }
   };
+
   return (
     <div class="forgotpasswordmaindiv">
       <div
