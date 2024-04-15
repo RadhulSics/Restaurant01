@@ -6,7 +6,7 @@ import food3 from "../Assests/rest4.jpg";
 function Restaurantgallery() {
   // const [card, setCard] = useState({});
   return (
-    <div>
+    <div> 
       <img src={food1} style={{ width: "100rem" }} alt="food1"></img>
       
       <div class="food2">

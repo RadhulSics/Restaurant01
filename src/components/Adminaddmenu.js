@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+
 function Adminaddmenu() {
   const[data,setData]=useState({
     foodname: "",
     image: "",
     price: "",
+
     amount:0
   })
   const handleChange=(a)=>{
@@ -27,6 +29,17 @@ function Adminaddmenu() {
         "Content-Type": "multipart/form-data",
       },
     })
+
+    
+  })
+  const handleChange=(a)=>{
+    setData({ ...data, [a.target.name]: a.target.value });
+    console.log(data);
+  }
+  const handleSubmit=(a)=>{
+    a.preventDefault();
+    console.log(data);
+
   }
   return (
     <div
@@ -40,7 +53,11 @@ function Adminaddmenu() {
     >
       <form className="form-control d-block bg-warning-subtle">
         <div>
+
           <h2 className="text-center mt-3 mb-3">Add food menu</h2>
+
+          <h2 className="text-center mt-3 mb-3">Add food items</h2>
+
         </div>
         <div className="d-flex p-2">
           <label className="form-label" style={{ width: "7rem" }}>

@@ -12,21 +12,35 @@ function Projectreg() {
     gender: "",
     condition: "",
   });
+  
   function Change(e) {
     setState({ ...state, [e.target.name]: e.target.value });
+
    
   }
   async function Submit(e) {
+
+     
+  }
+ async function Submit(e) {
+
     e.preventDefault();
+    
     // alert("You registered succesfully")
     console.log(state);
     if (state.password !== state.confirmpassword) {
       alert("Password not matched");
     } else {
+
       alert("You registered succesfully")
       const result=await axios.post("http://localhost:5000/addschema",state)
       console.log("result",result)
       navigate('/Customerviewmenu')
+
+      alert("You registered succesfully");
+      const result=await axios.post("http://localhost:3000/addSchema",state)
+      console.log("result",result);
+
     }
   }
   return (
@@ -113,7 +127,7 @@ function Projectreg() {
           {/* <button style={{ backgroundColor: "blue" }}>Register</button> */}
           {/* <button type="button" class="btn btn-primary" >Register</button> */}
           <button  onClick={Change} className='btn btn-primary' type="Register">Register</button><br/>
-          <p>already have an account?<a href="#">Log in</a></p>
+          <p>already have an account?<a href="/Customerlogin">Log in</a></p>
          
         </div>
       </form>
