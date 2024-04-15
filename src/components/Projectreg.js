@@ -1,6 +1,8 @@
+import axios from 'axios'
 import React, { useState } from "react";
-
+import {useNavigate} from "react-router-dom";
 function Projectreg() {
+  const navigate=useNavigate()
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
@@ -12,15 +14,19 @@ function Projectreg() {
   });
   function Change(e) {
     setState({ ...state, [e.target.name]: e.target.value });
+   
   }
-  function Submit(e) {
+  async function Submit(e) {
     e.preventDefault();
     // alert("You registered succesfully")
     console.log(state);
     if (state.password !== state.confirmpassword) {
       alert("Password not matched");
     } else {
-      alert("You registered succesfully");
+      alert("You registered succesfully")
+      const result=await axios.post("http://localhost:5000/addschema",state)
+      console.log("result",result)
+      navigate('/Customerviewmenu')
     }
   }
   return (
