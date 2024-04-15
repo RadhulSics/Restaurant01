@@ -5,7 +5,7 @@ function Forgotpassword() {
   const [data, setData] = useState({
     email: "",
     newpassword: "",
-    comfirmnewpassword: "",
+    confirmnewpassword: "",
   });
   const handleChange = (a) => {
     setData({ ...data, [a.target.name]: a.target.value });
