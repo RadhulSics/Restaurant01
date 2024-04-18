@@ -18,6 +18,7 @@ import Adminaddmenu from './components/Adminaddmenu';
 import Customerlogin from './components/Customerlogin';
 import './components/Customerlogin.css';
 import Customerhomepage from './components/Customerhomepage';
+
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
         <Route path='/Customerlogin'element={<Customerlogin/>}/>
         <Route path='/Customerhomepage'element={<Customerhomepage/>}/>
         <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
+        
       </Routes>
       </BrowserRouter>
      
