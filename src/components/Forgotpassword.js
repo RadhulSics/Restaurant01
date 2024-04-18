@@ -3,20 +3,19 @@ import axios from 'axios'
 function Forgotpassword() {
   const [Data, setData] = useState({
     email: "",
+    password: "",
     newpassword: "",
-    confirmnewpassword: "",
   });
 
   const handleChange = (a) => {
     setData({ ...Data, [a.target.name]: a.target.value });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (Data.newpassword !== Data.confirmnewpassword) {
-      alert("Password and Confirm password must be same");
-    } else {
+  const handleSubmit = (a) => {
+    a.preventDefault();
+    if (Data.newpassword === Data.confirmnewpassword) {
+      console.log(Data);
       axios
-        .post("http://localhost:3500/forgotPassword", Data)
+        .post("http://localhost:3000/forgotPassword", Data)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
@@ -28,6 +27,8 @@ function Forgotpassword() {
         .catch((err) => {
           console.log(err);
         });
+    } else {
+      alert("Password and Confirm password must be same");
     }
   };
   return (
@@ -66,7 +67,7 @@ function Forgotpassword() {
             <input
               className="form-control "
               style={{ width: "13rem" }}
-              name="newpassword"
+              name="password"
               placeholder="Enter Password"
               type="password"
               onChange={handleChange}
@@ -80,7 +81,7 @@ function Forgotpassword() {
             <input
               className="form-control "
               style={{ width: "13rem" }}
-              name="confirmnewpassword"
+              name="password"
               placeholder="Re-enter the Password"
               type="password"
               onChange={handleChange}

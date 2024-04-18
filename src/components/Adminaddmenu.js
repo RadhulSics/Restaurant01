@@ -8,7 +8,7 @@ function Adminaddmenu() {
     price: "",
     amount:0
   })
-  
+
 
   const handleChange=(a)=>{
 
@@ -49,7 +49,7 @@ function Adminaddmenu() {
 
           <h2 className="text-center mt-3 mb-3">Add food menu</h2>
 
-          <h2 className="text-center mt-3 mb-3">Add food items</h2>
+          
 
         </div>
         <div className="d-flex p-2">

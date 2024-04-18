@@ -18,9 +18,11 @@ import Adminaddmenu from './components/Adminaddmenu';
 import Customerlogin from './components/Customerlogin';
 import './components/Customerlogin.css';
 import Customerhomepage from './components/Customerhomepage';
+
 import StaffRegistration from "./components/StaffRegistration";
 import Staffslogin from "./components/StaffsLogin";
 import Staffviewfood from './components/Staffviewfood';
+
 
 function App() {
   return (
@@ -41,6 +43,9 @@ function App() {
         <Route path="/StaffRegistration" element={<StaffRegistration />} />
         <Route path="/StaffLogin" element={<Staffslogin />} />
         <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
+
+        
+
       </Routes>
       </BrowserRouter>
      
