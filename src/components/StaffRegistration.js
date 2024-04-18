@@ -28,6 +28,7 @@ function Staffregister() {
           console.log(res);
           if (res.data.status === 200) {
             alert(res.data.msg);
+            window.location.reload(false);
           } else {
             alert(res.data.msg);
           }
