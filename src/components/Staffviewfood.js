@@ -11,7 +11,7 @@ function Staffviewfood() {
   });
   console.log(staffcartdata);
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:3500/Customerviewmenu");
+    const response = await axios.get("http://localhost:3000/Customerviewmenu");
     console.log(response.data.result);
     setState();
    };
