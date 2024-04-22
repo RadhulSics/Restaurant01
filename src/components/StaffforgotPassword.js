@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
-function Forgotpassword() {
+function Staffforgotpassword() {
   const [Data, setData] = useState({
     email: "",
     password: "",
@@ -15,7 +15,7 @@ function Forgotpassword() {
     if (Data.newpassword === Data.confirmnewpassword) {
       console.log(Data);
       axios
-        .post("http://localhost:3000/forgotPassword", Data)
+        .post("http://localhost:3000/staffforgotPassword", Data)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
@@ -39,7 +39,7 @@ function Forgotpassword() {
           style={{
             width: "25rem",
             marginTop: "7rem",
-            backgroundColor: "lightblue",
+            backgroundColor: "rgba(128, 128, 128, 0.700)",
           }}
         >
           <div className="p-2 w-100">
@@ -62,11 +62,11 @@ function Forgotpassword() {
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
-               Enter Password:
+               Enter New Password:
             </label>
             <input
               className="form-control "
-              style={{ width: "13rem",height:"1rem" }}
+              style={{ width: "13rem" }}
               name="password"
               placeholder="Enter Password"
               type="password"
@@ -76,11 +76,11 @@ function Forgotpassword() {
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
-              Confirm Password:
+              Confirm New Password:
             </label>
             <input
               className="form-control "
-              style={{ width: "13rem",height:"1rem" }}
+              style={{ width: "13rem" }}
               name="password"
               placeholder="Re-enter the Password"
               type="password"
@@ -99,4 +99,4 @@ function Forgotpassword() {
   );
 }
 
-export default Forgotpassword;
+export default Staffforgotpassword;

@@ -22,6 +22,7 @@ import Customerhomepage from './components/Customerhomepage';
 import StaffRegistration from "./components/StaffRegistration";
 import Staffslogin from "./components/StaffsLogin";
 import Staffviewfood from './components/Staffviewfood';
+import Staffforgotpassword from './components/StaffforgotPassword';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/StaffRegistration" element={<StaffRegistration />} />
         <Route path="/StaffLogin" element={<Staffslogin />} />
         <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
+        <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
 
         
 

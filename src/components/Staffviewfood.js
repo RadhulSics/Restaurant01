@@ -11,7 +11,7 @@ function Staffviewfood() {
   });
   console.log(staffcartdata);
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:3500/Customerviewmenu");
+    const response = await axios.get("http://localhost:3000/Customerviewmenu");
     console.log(response.data.result);
     setState();
    };
@@ -22,7 +22,7 @@ function Staffviewfood() {
   const handleClick = (id) => {
     console.log(id);
     axios
-        .post(`http://localhost:3500/staffaddcart/${id}`, staffcartdata)
+        .post(`http://localhost:3000/staffaddcart/${id}`, staffcartdata)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
