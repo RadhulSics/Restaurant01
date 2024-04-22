@@ -15,13 +15,14 @@ function Adlogin() {
     e.preventDefault();
     if(form.username==="admin@gmail.com" && form.password==="admin123"){
         alert("login successfully")
+        console.log(form);
+    navigate('/Admindashboard')
     }
     else{
         alert("invalid username and password")
     }
-    console.log(form);
-    navigate('/Admindashboard')
-    // alert("login successfully")
+    
+ 
   }
   return (
     <div class="adloginmaindiv">

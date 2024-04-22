@@ -5,10 +5,11 @@ function Adminaddmenu() {
   const[data,setData]=useState({
     foodname: "",
     image: "",
+    foodtype:"",
     price: "",
     amount:0
   })
-  
+
 
   const handleChange=(a)=>{
 
@@ -64,7 +65,7 @@ function Adminaddmenu() {
 
           <h2 className="text-center mt-3 mb-3">Add food menu</h2>
 
-          <h2 className="text-center mt-3 mb-3">Add food items</h2>
+          
 
         </div>
         <div className="d-flex p-2">
@@ -88,6 +89,18 @@ function Adminaddmenu() {
             className="form-control"
             type="file"
             name="image"
+            onChange={handleChange}
+            style={{ width: "15rem" }}
+          ></input>
+        </div>
+        <div className="d-flex p-2">
+          <label className="form-label" style={{ width: "7rem" }}>
+            Food Type:
+          </label>
+          <input
+            className="form-control"
+            type="text"
+            name="foodtype"
             onChange={handleChange}
             style={{ width: "15rem" }}
           ></input>
