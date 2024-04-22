@@ -18,12 +18,9 @@ import Adminaddmenu from './components/Adminaddmenu';
 import Customerlogin from './components/Customerlogin';
 import './components/Customerlogin.css';
 import Customerhomepage from './components/Customerhomepage';
-
-import StaffRegistration from "./components/StaffRegistration";
-import Staffslogin from "./components/StaffsLogin";
-import Staffviewfood from './components/Staffviewfood';
-
-
+import Adminviewmenu from './components/Adminviewmenu';
+import Editfood from './components/Editfood';
+import Editfooddetails from './components/Editfooddetails';
 function App() {
   return (
     <div className="App">
@@ -41,12 +38,10 @@ function App() {
         <Route path='/Customerlogin'element={<Customerlogin/>}/>
         <Route path='/Customerhomepage'element={<Customerhomepage/>}/>
         <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
-        <Route path="/StaffRegistration" element={<StaffRegistration />} />
-        <Route path="/StaffLogin" element={<Staffslogin />} />
-        <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
-
+        <Route path='/Adminviewmenu'element={<Adminviewmenu/>}/>
+        <Route path='/Editfood'element={<Editfood/>}/>
+        <Route path='/Editfooddetails'element={<Editfooddetails/>}/>
         
-
       </Routes>
       </BrowserRouter>
      
