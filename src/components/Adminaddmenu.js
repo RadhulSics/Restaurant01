@@ -30,7 +30,22 @@ function Adminaddmenu() {
         "Content-Type": "multipart/form-data",
       },
     })
-
+    // alert('menu added successfully')
+    .then((res) => {
+      console.log(res);
+      if (res.data.status === 200) {
+        // alert(res.data.msg);
+        alert("added scueesfully")
+      } 
+      // alert("added scueesfully")
+      // else {
+      // //   alert(res.data.msg);
+      // // }
+    })
+    .catch((err) => {
+      console.log(err);
+      alert('failed to add menu')
+    });
     
   }
   
