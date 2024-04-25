@@ -5,7 +5,6 @@ function Adminaddmenu() {
   const[data,setData]=useState({
     foodname: "",
     image: "",
-    foodtype:"",
     price: "",
     amount:0
   })
@@ -26,12 +25,24 @@ function Adminaddmenu() {
   const handleSubmit=(a)=>{
     a.preventDefault();
     console.log(data);
-    axios.post("http://localhost:5000/addmenu", data, {
+    axios.post("http://localhost:3000/addmenu", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     })
-
+    // alert('menu added successfully')
+    .then((res) => {
+      console.log(res);
+      if (res.data.status === 200) {
+       alert(res.data.msg);
+      }else{
+        alert("addedsucessfully");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("failed to add")
+    });
     
   }
   
@@ -74,18 +85,6 @@ function Adminaddmenu() {
             className="form-control"
             type="file"
             name="image"
-            onChange={handleChange}
-            style={{ width: "15rem" }}
-          ></input>
-        </div>
-        <div className="d-flex p-2">
-          <label className="form-label" style={{ width: "7rem" }}>
-            Food Type:
-          </label>
-          <input
-            className="form-control"
-            type="text"
-            name="foodtype"
             onChange={handleChange}
             style={{ width: "15rem" }}
           ></input>

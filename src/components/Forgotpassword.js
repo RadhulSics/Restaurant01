@@ -96,6 +96,7 @@ function Forgotpassword() {
         </div>
       </form>
     </div>
+    
   );
 }
 
