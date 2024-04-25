@@ -7,7 +7,7 @@ import Forgotpassword from './components/Forgotpassword';
 
 import {BrowserRouter,Route,Routes} from"react-router-dom";
 import Restaurantgallery from './components/Restaurantgallery';
-import Customerviewmenu from './components/Customerviewmenu';
+// import Customerviewmenu from './components/Customerviewmenu';
 import  Nav from './components/Nav';
 import './components/Nav.css';
 import Adlogin from './components/Adlogin';
@@ -21,6 +21,8 @@ import Customerhomepage from './components/Customerhomepage';
 import Adminviewmenu from './components/Adminviewmenu';
 import Editfood from './components/Editfood';
 import Editfooddetails from './components/Editfooddetails';
+import Payment from './components/Payment';
+import Viewfood from './components/Viewfood';
 function App() {
   return (
     <div className="App">
@@ -31,7 +33,7 @@ function App() {
         <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
         <Route path='/Projectreg'element={<Projectreg/>}/>
         <Route path='/'element={<Restaurantgallery/>}/>
-        <Route path='/Customerviewmenu'element={<Customerviewmenu/>}/>
+        {/* <Route path='/Customerviewmenu'element={<Customerviewmenu/>}/> */}
         <Route path='/Adlogin'element={<Adlogin/>}/>
         <Route path='/Admindashboard'element={<Admindashboard/>}/>
         <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
@@ -41,6 +43,10 @@ function App() {
         <Route path='/Adminviewmenu'element={<Adminviewmenu/>}/>
         <Route path='/Editfood'element={<Editfood/>}/>
         <Route path='/Editfooddetails'element={<Editfooddetails/>}/>
+        <Route path='/Payment'element={<Payment/>}/>
+        <Route path='/Viewfood'element={<Viewfood/>}/>
+        
+
         
       </Routes>
       </BrowserRouter>
