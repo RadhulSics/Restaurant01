@@ -6,7 +6,7 @@ function Nav() {
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary " id="nav1" >
         <div class="container-fluid">
-          <a class="navbar-brand" style={{color:"white"}}>
+          <a class="navbar-brand" style={{color:"red"}}>
             RESTUARANT PAGE
           </a>
           <button
@@ -26,33 +26,55 @@ function Nav() {
                 <Link
                   to="/Restaurantgallery"
                   class="nav-link active"
-                  aria-current="page" style={{color:"white"}}
+                  aria-current="page" style={{color:"blue"}}
 
                 >
                   HOME
                 </Link>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <Link
                   to="/Projectreg"
                   class="nav-link active"
                   aria-current="page"
-                  style={{color:"white"}}
+                  style={{color:"blue"}}
                 >
                   NEW REGISTRATION
                 </Link>
-              </li>
+              </li> */}
               <li class="nav-item">
                 <Link
                   to="/Customerviewmenu"
                   class="nav-link active"
                   aria-current="page"
-                  style={{color:"white"}}
+                  style={{color:"blue"}}
                 >
                   MENU
                 </Link>
               </li>
+              
             </ul>
+            <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Staff
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/StaffsLogin">Staff Login</a></li>
+    <li><a class="dropdown-item" href="/StaffRegistration">Staff Registration</a></li>
+    
+  </ul>
+</div>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Customer
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/Customerlogin">Customer Login</a></li>
+    <li><a class="dropdown-item" href="/Projectreg">Customer Registration</a></li>
+    
+  </ul>
+</div>
+            
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2"
@@ -60,7 +82,7 @@ function Nav() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit" style={{color:"white"}}>
+              <button class="btn btn-outline-success" type="submit" style={{color:"blue"}}>
                 Search
               </button>
             </form>
