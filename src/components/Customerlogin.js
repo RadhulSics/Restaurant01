@@ -32,14 +32,16 @@ function Customerlogin() {
   }
 
   return (
-    <div class="customerlogin">
+    <div class="customerlogin ">
       <div
         class="form-control d-flex mx-auto "
         style={{
           width: "30rem",
           height: "22rem",
           marginLeft: "35rem",
+          marginTop:"3rem",
           backgroundColor: "lightgray",
+
         }}
       >
         <form onSubmit={submit}>

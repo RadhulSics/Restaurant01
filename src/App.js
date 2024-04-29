@@ -30,10 +30,11 @@ function App() {
     <div className="App">
 <BrowserRouter>
       <Nav/>
+      {/* <Restaurantgallery/> */}
       <Routes>
         <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
         <Route path='/Projectreg'element={<Projectreg/>}/>
-        <Route path='/Restaurantgallery'element={<Restaurantgallery/>}/>
+        <Route path='/'element={<Restaurantgallery/>}/>
         <Route path='/Customerviewmenu'element={<Customerviewmenu/>}/>
         <Route path='/Adlogin'element={<Adlogin/>}/>
         <Route path='/Admindashboard'element={<Admindashboard/>}/>
