@@ -1,6 +1,7 @@
 import React, { useState } from "react";
  import axios from "axios";
 import img2 from '../Assests/img2.jpeg'
+//  import "./Staffregistration.css"
 function Staffregister() {
   const [data, setData] = useState({
     fname: "",
