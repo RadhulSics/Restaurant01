@@ -23,27 +23,27 @@ function Adminaddmenu() {
   const handleSubmit = (a) => {
     a.preventDefault();
     console.log(data);
-    axios.post("http://localhost:5000/addmenu", data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data.status === 200) {
-          // alert(res.data.msg);
-          alert ("added suceesfully")
-        } 
-        // else {
-        //   alert("added sucessfully");
-        // }
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("failed to add")
-      });
-  };
-
+    axios.post("http://localhost:3000/addmenu", data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    // alert('menu added successfully')
+    .then((res) => {
+      console.log(res);
+      if (res.data.status === 200) {
+       alert(res.data.msg);
+      }else{
+        alert("addedsucessfully");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("failed to add")
+    });
+    
+  }
+  
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>

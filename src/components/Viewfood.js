@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Staffviewfood() {
-  const [state, setState] = useState([])
-  let stafid = localStorage.getItem("staffId");
+function Viewfood() {
+  const [state, setState] = useState([]);
+  let custid = localStorage.getItem("custId");
 
-  const [staffcartdata, setStaffcartdata] = useState({
-    staffid: stafid,
+  const [cartdata, setCartdata] = useState({
+    userid: custid,
     count: "1",
   });
-  console.log(staffcartdata);
+  console.log(cartdata);
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:3000/Customerviewmenu");
+    const response = await axios.get("http://localhost:3000/viewfood");
     console.log(response.data.result);
-     setState();
-   };
-   useEffect(() => {
+    setState(response.data.result);
+  };
+  useEffect(() => {
     fetchFood();
-   }, []);
+  }, []);
 
   const handleClick = (id) => {
     console.log(id);
     axios
-        .post(`http://localhost:3000/staffaddcart/${id}`, staffcartdata)
+        .post(`http://localhost:3500/addcart/${id}`, cartdata)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
-            console.log(res.data.msg)
+            alert(res.data.msg);
           } else {
             alert(res.data.msg);
           }
@@ -34,7 +34,7 @@ function Staffviewfood() {
         .catch((err) => {
           console.log(err);
         });
-    }
+  };
 
   return (
     <div className="m-4">
@@ -43,7 +43,7 @@ function Staffviewfood() {
           <li key={x._id} className="m-3 p-4 d-inline-flex">
             <div className="shadow-lg p-3 bg-body-tertiary rounded">
               <img
-                src={`http://localhost:3000/${x.image}`}
+                src={`http://localhost:3500/${x.image}`}
                 className="img-fluid"
                 alt="..."
                 style={{ width: "15rem", height: "15rem" }}
@@ -55,10 +55,10 @@ function Staffviewfood() {
                   <select
                     name="count"
                     onChange={(a) => {
-                        setStaffcartdata({
-                            ...staffcartdata,
-                            [a.target.name]: a.target.value,
-                          });
+                      setCartdata({
+                        ...cartdata,
+                        [a.target.name]: a.target.value,
+                      });
                       x.amount=x.price*a.target.value;
                     }}
                   >
@@ -84,15 +84,15 @@ function Staffviewfood() {
                     handleClick(x._id);
                   }}
                 >
-                  Buy now
+                  Add cart
                 </button>
               </div>
             </div>
           </li>
         ))}
       </ul>
-    </div>  );
+    </div>
+  );
 }
 
-
-export default Staffviewfood;
+export default Viewfood;

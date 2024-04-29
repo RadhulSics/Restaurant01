@@ -1,7 +1,7 @@
 import React, { useState } from "react";
  import axios from "axios";
-
-
+import img2 from '../Assests/img2.jpeg'
+//  import "./Staffregistration.css"
 function Staffregister() {
   const [data, setData] = useState({
     fname: "",
@@ -42,16 +42,14 @@ function Staffregister() {
   };
 
   return (
-    <div className="mb-5">
-      <div
-        className="form-control d-flex mx-auto mt-5"
-        style={{ width: "28rem",marginTop: "1rem",backgroundColor:"rgba(128, 128, 128, 0.700)" }}
-      >
-        <form>
-          <h2 className="text-center mt-4 mb-3">Staff Registration</h2>
+    <div style={{ position: "relative", width: "100%" }}>
+    <img src={img2} alt="Background" style={{ width:"100%" }} />
+    <div className="Ani" style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <form style={{ width: "50%", maxWidth: "500px",backgroundColor: "rgba(128, 128, 128, 0.600)" }}>
+        <h2 className="text-center mt-4 mb-3">Staff Registration</h2>
           <div className="d-flex p-2">
             <label className="form-label mt-2 w-50" htmlFor="fname">
-              First Name:
+              First Name
             </label>
             <input
               id="fname"
@@ -59,7 +57,7 @@ function Staffregister() {
               style={{ width: "20rem" }}
               type="text"
               name="fname"
-              placeholder="Enter First Name"
+              placeholder="First Name"
               required
               onChange={handleChange}
             ></input>
@@ -74,7 +72,7 @@ function Staffregister() {
               style={{ width: "20rem" }}
               type="text"
               name="lname"
-              placeholder="Enter Last Name"
+              placeholder="Last Name"
               required
               onChange={handleChange}
             ></input>
@@ -86,7 +84,7 @@ function Staffregister() {
               style={{ width: "20rem" }}
               type="date"
               name="dob"
-              placeholder="Enter Date of Birth"
+              placeholder="Date of Birth"
               required
               onChange={handleChange}
             ></input>
@@ -132,7 +130,7 @@ function Staffregister() {
               style={{ width: "20rem" }}
               type="email"
               name="email"
-              placeholder="Enter Email"
+              placeholder="Email"
               required
               onChange={handleChange}
             ></input>
@@ -177,7 +175,7 @@ function Staffregister() {
               style={{ width: "20rem" }}
               type="tel"
               name="contactno"
-              placeholder="Enter Contact No."
+              placeholder="Contact No."
               maxLength={10}
               minLength={10}
               required

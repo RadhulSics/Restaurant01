@@ -24,7 +24,7 @@ function Customerlogin() {
       alert("Login successful");
       console.log("user data",result.data.data);
       localStorage.setItem('userid',result.data.data._id)
-      navigate('/Customerhomepage')
+      navigate('/Viewfood')
     } else {
       alert("Login failed");
     }

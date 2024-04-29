@@ -3,8 +3,8 @@ import axios from "axios";
 import Admindashboard from "./Admindashboard";
 function Adminviewmenu() {
     const [state, setState] = useState([]);
-    const fetchFood= async () => {
-        const response = await axios.get("http://localhost:5000/viewmenu");
+    const fetchFood = async () => {
+        const response=await axios.get("http://localhost:3000/viewmenu");
         console.log(response.data.result);
         setState(response.data.result);
       };
@@ -22,7 +22,7 @@ function Adminviewmenu() {
           <li key={x._id} className="m-3 p-4 d-inline-flex">
             <div className="shadow-lg p-3 bg-body-tertiary rounded">
               <img
-                src={`http://localhost:5000/${x.image}`}
+                src={`http://localhost:3000/${x.image}`}
                 className="img-fluid"
                 alt="..."
                 style={{ width: "15rem", height: "15rem" }}
