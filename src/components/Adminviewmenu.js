@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import Admindashboard from "./Admindashboard";
 function Adminviewmenu() {
     const [state, setState] = useState([]);
-    const fetchFood = async () => {
-        const response=await axios.get("http://localhost:5000/viewmenu");
+    const fetchFood= async () => {
+        const response = await axios.get("http://localhost:5000/viewmenu");
         console.log(response.data.result);
         setState(response.data.result);
       };
@@ -12,6 +12,10 @@ function Adminviewmenu() {
         fetchFood();
       }, []);
   return (
+    <div style={{ display: "flex" }}>
+      <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>
+        <Admindashboard />
+      </div>
     <div className="m-4">
       <ul style={{ listStyleType: "none" }} className="p-3">
         {state.map((x) => (
@@ -26,18 +30,22 @@ function Adminviewmenu() {
               <div>
                 <h4 className="mt-2">{x.foodname}</h4>
                 <div>
+                  <h5 className="mt-2">{x.category}</h5>
+                <div>
                   <h4 className="mb-2">
                     Price: {"\u20B9"}
                     {x.amount ? x.amount : x.price}
                   </h4>
+                </div>
                 </div>
               </div>
             </div>
           </li>
         ))}
       </ul>
-    </div>
+    </div></div>
+
   );
 }
 
-export default Adminviewmenu;;
+export default Adminviewmenu;

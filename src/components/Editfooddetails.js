@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import Admindashboard from "./Admindashboard";
 function Editfooddetails() {
   const { id } = useParams();
   const navigate = useNavigate()
@@ -10,7 +10,7 @@ function Editfooddetails() {
     foodname: "",
     image: "",
     price: "",
-    amount: "",
+    amount:0
   });
 
   useEffect(() => {
@@ -34,13 +34,14 @@ function Editfooddetails() {
     }
   };
   console.log(data);
-  const handleUpdate= (a) => {
+  const handleUpdate = (a) => {
     a.preventDefault();
-    axios.post(`http://localhost:5000/editfooddetails/${id}`, data)
+    axios
+      .post(`http://localhost:5000/editfooddetails/${id}`, data)
       .then((res) => {
         console.log(res);
         alert("Updated successfully");
-        navigate("/Editfood")
+        navigate("/editfood")
       })
       .catch((err) => {
         console.log("Error", err);
@@ -48,6 +49,10 @@ function Editfooddetails() {
   };
 
   return (
+    <div style={{ display: "flex" }}>
+      <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>
+        <Admindashboard />
+      </div>
     <div
       className="mx-auto shadow-lg"
       style={{
@@ -103,11 +108,11 @@ function Editfooddetails() {
         </div>
         <div className="d-flex p-2 ps-3">
           <label className="form-label" style={{ width: "7.5rem" }}>
-            amount:
+            Amount:
           </label>
           <textarea
             type="text"
-            placeholder="Enter the amount"
+            placeholder="amount"
             name="amount"
             value={data.amount}
             onChange={handleChange}
@@ -121,6 +126,7 @@ function Editfooddetails() {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

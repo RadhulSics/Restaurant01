@@ -1,60 +1,57 @@
-import React, { useState } from 'react'
-import axios from 'axios';
-
+import React, { useState } from "react";
+import axios from "axios";
+import Admindashboard from "./Admindashboard";
 function Adminaddmenu() {
-  const[data,setData]=useState({
+  const [data, setData] = useState({
     foodname: "",
     image: "",
-    foodtype:"",
     price: "",
-    amount:0
-  })
+    amount:0,
+    category:""
+    
+  });
 
-
-  const handleChange=(a)=>{
-
-    // setData({ ...data, [a.target.name]: a.target.value });
-    // console.log(data);
+  const handleChange = (a) => {
     if (a.target.name === "image") {
       const file = a.target.files[0];
       setData({ ...data, image: file });
     } else {
       setData({ ...data, [a.target.name]: a.target.value });
     }
-  }
+  };
 
-  const handleSubmit=(a)=>{
+  const handleSubmit = (a) => {
     a.preventDefault();
     console.log(data);
     axios.post("http://localhost:5000/addmenu", data, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-    // alert('menu added successfully')
-    .then((res) => {
-      console.log(res);
-      if (res.data.status === 200) {
-        // alert(res.data.msg);
-        alert("added scueesfully")
-      } 
-      // alert("added scueesfully")
-      // else {
-      // //   alert(res.data.msg);
-      // // }
-    })
-    .catch((err) => {
-      console.log(err);
-      alert('failed to add menu')
-    });
-    
-  }
-  
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.status === 200) {
+          // alert(res.data.msg);
+          alert ("added suceesfully")
+        } 
+        // else {
+        //   alert("added sucessfully");
+        // }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("failed to add")
+      });
+  };
+
   return (
+    <div style={{ display: "flex" }}>
+      <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>
+        <Admindashboard />
+      </div>
     <div
       className="mx-auto shadow-lg mb-5"
       style={{
-
         width: "25rem",
         marginTop: "7rem",
         borderRadius: "0.5rem",
@@ -62,11 +59,7 @@ function Adminaddmenu() {
     >
       <form className="form-control d-block bg-warning-subtle">
         <div>
-
-          <h2 className="text-center mt-3 mb-3">Add food menu</h2>
-
-          
-
+          <h2 className="text-center mt-3 mb-3">Add food items</h2>
         </div>
         <div className="d-flex p-2">
           <label className="form-label" style={{ width: "7rem" }}>
@@ -95,18 +88,6 @@ function Adminaddmenu() {
         </div>
         <div className="d-flex p-2">
           <label className="form-label" style={{ width: "7rem" }}>
-            Food Type:
-          </label>
-          <input
-            className="form-control"
-            type="text"
-            name="foodtype"
-            onChange={handleChange}
-            style={{ width: "15rem" }}
-          ></input>
-        </div>
-        <div className="d-flex p-2">
-          <label className="form-label" style={{ width: "7rem" }}>
             Price:
           </label>
           <input
@@ -118,14 +99,28 @@ function Adminaddmenu() {
             className="form-control"
           ></input>
         </div>
+        <div className="d-flex p-2">
+          <label className="form-label" style={{ width: "7rem" }}>
+            Category:
+          </label>
+          <textarea
+            type="text"
+            placeholder="Enter the category"
+            name="category"
+            onChange={handleChange}
+            style={{ width: "15rem" }}
+            className="form-control"
+          ></textarea>
+        </div>
         <div className="mb-3 mt-3 text-center">
-          <button className="btn btn-primary" onClick={handleSubmit}>
+          <button className="btn btn-success" onClick={handleSubmit}>
             Add item
           </button>
         </div>
       </form>
     </div>
-  )
+    </div>
+  );
 }
 
-export default Adminaddmenu
+export default Adminaddmenu;

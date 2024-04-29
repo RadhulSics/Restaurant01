@@ -5,7 +5,7 @@ function Admindashboard() {
     
     
     // <div>
-    //     <h3>Welcome To Admin DashBoard </h3>
+        // <h3>Welcome To Admin DashBoard </h3>
       <div style={{ display: 'flex', flexDirection: 'column',height:"100rem", width: '200px', backgroundColor: '#f0f0f0'}}>
       <h2>ADMIN</h2>
       <a href="/Adminaddmenu" style={{ padding: '10px', textDecoration: 'none', color: 'black' }}>ADD MENU</a>
@@ -34,8 +34,7 @@ function Admindashboard() {
                 </ul>
               </ul>
             </ul>
-   <div className='main'><h3>Welcome To AdminDashBoard</h3>
-    </div>
+ 
      </div>
   )
 }
