@@ -25,6 +25,36 @@ import Payment from "./components/Payment";
 // import Viewfood from "./components/Viewfood";
 import StaffsLogin from "./components/StaffsLogin";
 import StaffRegistration from "./components/StaffRegistration";
+import Staffslogin from "./components/StaffsLogin";
+import Staffviewfood from './components/Staffviewfood';
+import Staffforgotpassword from './components/StaffforgotPassword';
+
+
+function App() {
+  return (
+    <div className="App">
+<BrowserRouter>
+      <Nav/>
+      {/* <Restaurantgallery/> */}
+      <Routes>
+        <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
+        <Route path='/Projectreg'element={<Projectreg/>}/>
+        <Route path='/'element={<Restaurantgallery/>}/>
+        <Route path='/Customerviewmenu'element={<Customerviewmenu/>}/>
+        <Route path='/Adlogin'element={<Adlogin/>}/>
+        <Route path='/Admindashboard'element={<Admindashboard/>}/>
+        <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
+        <Route path='/Customerlogin'element={<Customerlogin/>}/>
+        <Route path='/Customerhomepage'element={<Customerhomepage/>}/>
+        <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
+        <Route path="/StaffRegistration" element={<StaffRegistration />} />
+        <Route path="/StaffLogin" element={<Staffslogin />} />
+        <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
+        <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
+
+        
+
+      </Routes>
 function App() {
   return (
     <div className="App">

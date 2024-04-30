@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-import axios from 'axios';
-
-function Forgotpassword() {
+import axios from 'axios'
+function Staffforgotpassword() {
   const [Data, setData] = useState({
     email: "",
     password: "",
-    confirmnewpassword: "",
+    newpassword: "",
   });
 
-  const handleChange = (e) => {
-    setData({ ...Data, [e.target.name]: e.target.value });
+  const handleChange = (a) => {
+    setData({ ...Data, [a.target.name]: a.target.value });
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (Data.password === Data.confirmnewpassword) {
+  const handleSubmit = (a) => {
+    a.preventDefault();
+    if (Data.newpassword === Data.confirmnewpassword) {
+      console.log(Data);
       axios
-        .post("http://localhost:5000/forgotPassword", Data)
+        .post("http://localhost:3000/staffforgotPassword", Data)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
@@ -32,7 +31,6 @@ function Forgotpassword() {
       alert("Password and Confirm password must be same");
     }
   };
-
   return (
     <div className="mb-5">
       <form>
@@ -41,13 +39,12 @@ function Forgotpassword() {
           style={{
             width: "25rem",
             marginTop: "7rem",
-            backgroundColor: "lightblue",
+            backgroundColor: "rgba(128, 128, 128, 0.700)",
           }}
         >
           <div className="p-2 w-100">
-            <h2 className="text-center mt-3 mb-3" style={{ color: "black" }}>
-              Customer Reset Password
-            </h2>
+            {" "}
+            <h2 className="text-center mt-3 mb-3" style={{color:"black"}}>Customer Reset Password</h2>
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
@@ -65,11 +62,11 @@ function Forgotpassword() {
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
-             Enter New Password:
+               Enter New Password:
             </label>
             <input
               className="form-control "
-              style={{ width: "13rem",height:"1rem" }}
+              style={{ width: "13rem" }}
               name="password"
               placeholder="Enter Password"
               type="password"
@@ -79,12 +76,12 @@ function Forgotpassword() {
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
-              Confirm Password:
+              Confirm New Password:
             </label>
             <input
               className="form-control "
               style={{ width: "13rem" }}
-              name="confirmnewpassword" 
+              name="password"
               placeholder="Re-enter the Password"
               type="password"
               onChange={handleChange}
@@ -102,4 +99,4 @@ function Forgotpassword() {
   );
 }
 
-export default Forgotpassword;
+export default Staffforgotpassword;

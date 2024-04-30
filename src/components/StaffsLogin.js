@@ -1,5 +1,10 @@
 import React, { useState } from "react";
+
 //  import {useNavigate} from "react-router-dom"
+
+ //import {useNavigate} from "react-router-dom"
+ import img2 from '../Assests/img2.jpeg'
+
 import axios from 'axios';
 
 function Staffslogin() {
@@ -35,16 +40,16 @@ function Staffslogin() {
     
   };
   return (
-    <div className="mb-5">
-      <form>
-        <div
-          className="form-control mx-auto d-block "
-          style={{
-            width: "21rem",
-            marginTop: "7rem",
-            backgroundColor: "rgba(128, 128, 128, 0.700)",
-          }}
-        >
+    <div className="mb-5" 
+      style={{ background: `url(${img2})`, backgroundSize: "cover",width:"100%"}}>
+    <form >
+      
+        <div className="form-control mx-auto d-block "
+            style={{
+                width: "21rem",
+                backgroundColor: "rgba(128, 128, 128, 0.700)",
+            }}>
+        
           <div className="p-2 w-100">
             <h2 className="text-center mt-3 mb-3">Staff Login</h2>
           </div>
@@ -81,7 +86,7 @@ function Staffslogin() {
           </div>
           <div className="text-center mt-3 mb-3">
              <a
-               href="forgetpassword"
+               href="/StaffforgotPassword"
             > 
               Forget password
             </a> 
