@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+
+//  import {useNavigate} from "react-router-dom"
+
  //import {useNavigate} from "react-router-dom"
  import img2 from '../Assests/img2.jpeg'
+
 import axios from 'axios';
 
 function Staffslogin() {
@@ -17,13 +21,13 @@ function Staffslogin() {
   const handleSubmit = (a) => {
     a.preventDefault();
     console.log(data);
-    axios.post("http://localhost:3000/stafflogin", data)
+    axios.post("http://localhost:5000/stafflogin", data)
     .then((res) => {
       console.log(res);
       if (res.data.status === 200) {
         alert(res.data.msg);
-        // localStorage.setItem("staffId", res.data.result._id);
-        // localStorage.getItem("fname", res.data.result.fname);
+        localStorage.setItem("staffId", res.data.result._id);
+        localStorage.getItem("fname", res.data.result.fname);
         //  navigate("/staffviewfood");
          window.location.reload(false);
       } else {

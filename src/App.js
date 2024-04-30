@@ -22,7 +22,7 @@ import Adminviewmenu from "./components/Adminviewmenu";
 import Editfood from "./components/Editfood";
 import Editfooddetails from "./components/Editfooddetails";
 import Payment from "./components/Payment";
-import Viewfood from "./components/Viewfood";
+// import Viewfood from "./components/Viewfood";
 import StaffsLogin from "./components/StaffsLogin";
 import StaffRegistration from "./components/StaffRegistration";
 import Staffslogin from "./components/StaffsLogin";
@@ -76,7 +76,7 @@ function App() {
           <Route path="/Editfood" element={<Editfood />} />
           <Route path="/Editfooddetails" element={<Editfooddetails />} />
           <Route path="/Payment" element={<Payment />} />
-          <Route path="/Viewfood" element={<Viewfood />} />
+          {/* <Route path="/Viewfood" element={<Viewfood />} /> */}
           <Route path="/StaffsLogin" element={<StaffsLogin />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
         </Routes>
