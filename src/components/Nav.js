@@ -2,6 +2,23 @@ import React from "react";
 import "../components/Nav.css"
 import { Link } from "react-router-dom";
 function Nav() {
+
+  // const handleClick = () => {
+  //   custid = localStorage.removeItem("custId");
+  //   custname = localStorage.removeItem("fname");
+  //   alert("You have logged out");
+  //   navigate("/Customerlogin");
+  //   window.location.reload(false);
+  // };
+
+  // const handlelogout = () => {
+  //   staffid = localStorage.removeItem("staffId");
+  //   staffname = localStorage.removeItem("sfname");
+  //   alert("You have logged out");
+  //   navigate("/stafflogin");
+  //   window.location.reload(false);
+  // };
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary " id="nav1" >
@@ -32,16 +49,7 @@ function Nav() {
                   HOME
                 </Link>
               </li>
-              {/* <li class="nav-item">
-                <Link
-                  to="/Projectreg"
-                  class="nav-link active"
-                  aria-current="page"
-                  style={{color:"blue"}}
-                >
-                  NEW REGISTRATION
-                </Link>
-              </li> */}
+              
               <li class="nav-item">
                 <Link
                   to="/Customerviewmenu"
@@ -64,6 +72,7 @@ function Nav() {
     
   </ul>
 </div>
+
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Customer
@@ -86,6 +95,7 @@ function Nav() {
                 Search
               </button>
             </form>
+            
           </div>
         </div>
       </nav>

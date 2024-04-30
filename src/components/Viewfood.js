@@ -2,89 +2,74 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Viewfood() {
-  const [state, setState] = useState([]);
-  let custid = localStorage.getItem("custId");
-
-  const [cartdata, setCartdata] = useState({
-    userid: custid,
-    count: "1",
+  const [foods, setFoods] = useState([]);
+  const [cartData, setCartData] = useState({
+    userId: localStorage.getItem("custId"),
+    count: 1,
   });
-  console.log(cartdata);
+
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:3000/viewfood");
-    console.log(response.data.result);
-    setState(response.data.result);
+    try {
+      const response = await axios.get("http://localhost:5000/viewmenu"); // Corrected URL
+      setFoods(response.data.result);
+    } catch (error) {
+      console.error("Error fetching food:", error);
+    }
   };
+
   useEffect(() => {
     fetchFood();
   }, []);
 
   const handleClick = (id) => {
-    console.log(id);
-    axios
-        .post(`http://localhost:3500/addcart/${id}`, cartdata)
-        .then((res) => {
-          console.log(res);
-          if (res.data.status === 200) {
-            alert(res.data.msg);
-          } else {
-            alert(res.data.msg);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    axios.post(`http://localhost:5000/addcart/${id}`, cartData)
+      .then((res) => {
+        if (res.data.status === 200) {
+          alert(res.data.message);
+        } else {
+          alert(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.error("Error adding to cart:", err);
+      });
   };
 
   return (
     <div className="m-4">
       <ul style={{ listStyleType: "none" }} className="p-3">
-        {state.map((x) => (
-          <li key={x._id} className="m-3 p-4 d-inline-flex">
+        {foods.map((food) => (
+          <li key={food._id} className="m-3 p-4 d-inline-flex">
             <div className="shadow-lg p-3 bg-body-tertiary rounded">
               <img
-                src={`http://localhost:3500/${x.image}`}
+                src={`http://localhost:5000/${food.image}`}
                 className="img-fluid"
-                alt="..."
+                alt="Food"
                 style={{ width: "15rem", height: "15rem" }}
               />
               <div>
-                <h4 className="mt-2">{x.foodname}</h4>
+                <h4 className="mt-2">{food.foodname}</h4>
                 <div>
                   <label className="form-label me-4">Quantity:</label>
                   <select
                     name="count"
-                    onChange={(a) => {
-                      setCartdata({
-                        ...cartdata,
-                        [a.target.name]: a.target.value,
-                      });
-                      x.amount=x.price*a.target.value;
-                    }}
+                    value={cartData.count}
+                    onChange={(e) => setCartData({ ...cartData, count: parseInt(e.target.value) })}
                   >
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
+                    {[...Array(10).keys()].map((count) => (
+                      <option key={count + 1} value={count + 1}>{count + 1}</option>
+                    ))}
                   </select>
                   <h4 className="mb-2">
                     Price: {"\u20B9"}
-                    {(x.amount)?(x.amount):(x.price)}
+                    {food.price * cartData.count}
                   </h4>
                 </div>
                 <button
                   className="btn btn-primary"
-                  onClick={() => {
-                    handleClick(x._id);
-                  }}
+                  onClick={() => handleClick(food._id)}
                 >
-                  Add cart
+                  Add to Cart
                 </button>
               </div>
             </div>
