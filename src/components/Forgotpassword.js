@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from 'axios';
+
 function Forgotpassword() {
   const [Data, setData] = useState({
     email: "",
     password: "",
-    newpassword: "",
+    confirmnewpassword: "",
   });
 
-  const handleChange = (a) => {
-    setData({ ...Data, [a.target.name]: a.target.value });
+  const handleChange = (e) => {
+    setData({ ...Data, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (a) => {
-    a.preventDefault();
-    if (Data.newpassword === Data.confirmnewpassword) {
-      console.log(Data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (Data.password === Data.confirmnewpassword) {
       axios
         .post("http://localhost:5000/forgotPassword", Data)
         .then((res) => {
@@ -31,6 +32,7 @@ function Forgotpassword() {
       alert("Password and Confirm password must be same");
     }
   };
+
   return (
     <div className="mb-5">
       <form>
@@ -43,8 +45,9 @@ function Forgotpassword() {
           }}
         >
           <div className="p-2 w-100">
-            {" "}
-            <h2 className="text-center mt-3 mb-3" style={{color:"black"}}>Customer Reset Password</h2>
+            <h2 className="text-center mt-3 mb-3" style={{ color: "black" }}>
+              Customer Reset Password
+            </h2>
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
@@ -62,7 +65,7 @@ function Forgotpassword() {
           </div>
           <div className="d-flex p-2">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
-               Enter New Password:
+              Enter New Password:
             </label>
             <input
               className="form-control "
@@ -81,7 +84,7 @@ function Forgotpassword() {
             <input
               className="form-control "
               style={{ width: "13rem" }}
-              name="password"
+              name="confirmnewpassword" 
               placeholder="Re-enter the Password"
               type="password"
               onChange={handleChange}
@@ -96,7 +99,6 @@ function Forgotpassword() {
         </div>
       </form>
     </div>
-    
   );
 }
 

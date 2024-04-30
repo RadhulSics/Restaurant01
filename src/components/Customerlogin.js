@@ -24,7 +24,7 @@ function Customerlogin() {
       alert("Login successful");
       console.log("user data",result.data.data);
       localStorage.setItem('userid',result.data.data._id)
-      navigate('')
+      navigate('/Customerhomepage')
     } else {
       alert("Login failed");
     }
@@ -46,7 +46,6 @@ function Customerlogin() {
       >
         <form onSubmit={submit}>
           <div class="p-2 w-100">
-            {" "}
             <h2
               class="text-center mt-3 mb-3"
               style={{
