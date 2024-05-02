@@ -17,7 +17,7 @@ import "./components/Admindashboard.css";
 import Adminaddmenu from "./components/Adminaddmenu";
 import Customerlogin from "./components/Customerlogin";
 import "./components/Customerlogin.css";
-import Customerhomepage from "./components/Customerhomepage";
+// import Customerhomepage from "./components/Customerhomepage";
 import Adminviewmenu from "./components/Adminviewmenu";
 import Editfood from "./components/Editfood";
 import Editfooddetails from "./components/Editfooddetails";
@@ -42,7 +42,7 @@ function App() {
           <Route path="/Adlogin" element={<Adlogin />} />
           <Route path="/Admindashboard" element={<Admindashboard />} />
           <Route path="/Customerlogin" element={<Customerlogin />} />
-          <Route path="/Customerhomepage" element={<Customerhomepage />} />
+          {/* <Route path="/Customerhomepage" element={<Customerhomepage />} /> */}
           <Route path="/Adminaddmenu" element={<Adminaddmenu />} />
           <Route path="/Adminviewmenu" element={<Adminviewmenu />} />
           <Route path="/Editfood" element={<Editfood />} />
@@ -50,7 +50,7 @@ function App() {
           <Route path="/Payment" element={<Payment />} />
           {/* <Route path="/Viewfood" element={<Viewfood />} /> */}
           <Route path="/StaffsLogin" element={<StaffsLogin />} />
-          <Route path="/Staffviewfood.js" element={<Viewfood />} />
+          <Route path="/Staffviewfood.js" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
         </Routes>
