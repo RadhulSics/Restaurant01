@@ -24,13 +24,14 @@ import Editfood from "./components/Editfood";
 import Editfooddetails from "./components/Editfooddetails";
 import Payment from "./components/Payment";
 // import Viewfood from "./components/Viewfood";
-import StaffsLogin from "./components/StaffsLogin";
+
 import StaffRegistration from "./components/StaffRegistration";
 import Staffviewfood from './components/Staffviewfood';
 import Staffforgotpassword from './components/StaffforgotPassword';
+import Staffslogin from "./components/StaffsLogin";
 function App() {
   return (
-    <div className="App">
+   <div className="App">
       <BrowserRouter>
         <Nav />
         {/* <Restaurantgallery/> */}
@@ -49,8 +50,8 @@ function App() {
           <Route path="/Editfooddetails" element={<Editfooddetails />} />
           <Route path="/Payment" element={<Payment />} />
           {/* <Route path="/Viewfood" element={<Viewfood />} /> */}
-          <Route path="/StaffsLogin" element={<StaffsLogin />} />
-          <Route path="/Staffviewfood.js" element={<Staffviewfood />} />
+          <Route path="/StaffsLogin" element={<Staffslogin />} />
+          <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
         </Routes>

@@ -16,7 +16,7 @@ function Staffforgotpassword() {
     if (Data.newpassword === Data.confirmnewpassword) {
       console.log(Data);
       axios
-        .post("http://localhost:3000/staffforgotPassword", Data)
+        .post("http://localhost:5000/staffforgotPassword", Data)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
