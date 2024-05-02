@@ -39,6 +39,7 @@ function Projectreg() {
     //   style={{ width: "30rem", marginTop: "8rem", backgroundColor:"rgba" }}
     >
       
+      
       <form onSubmit={Submit}>
       <h1>Create Your Account</h1>
       <div class="container">

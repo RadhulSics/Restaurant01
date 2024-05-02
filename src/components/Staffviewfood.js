@@ -19,6 +19,7 @@ function Staffviewfood() {
    useEffect(() => {
     fetchFood();
    }, []);
+   
 
   const handleClick = (id) => {
     console.log(id);

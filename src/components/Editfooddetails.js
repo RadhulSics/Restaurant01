@@ -26,6 +26,7 @@ function Editfooddetails() {
       });
   }, [id]);
 
+  
   const handleChange = (a) => {
     if (a.target.name === "image") {
       setData({ ...data, image: a.target.files[0] });

@@ -13,6 +13,8 @@ function Staffregister() {
     email: "",
     contactno: "",
   });
+  
+
 
   const handleChange = (a) => {
     setData({ ...data, [a.target.name]: a.target.value });
