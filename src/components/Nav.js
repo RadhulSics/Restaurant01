@@ -73,7 +73,7 @@ function Nav() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Staff
+                Log in
               </button>
               <ul className="dropdown-menu">
                 <li>
@@ -82,8 +82,8 @@ function Nav() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/StaffRegistration">
-                    Staff Registration
+                  <Link className="dropdown-item" to="/Customerlogin">
+                    Customer Login
                   </Link>
                 </li>
               </ul>
@@ -96,17 +96,17 @@ function Nav() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Customer
+                New Registration
               </button>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/Customerlogin">
-                    Customer Login
+                  <Link className="dropdown-item" to="/Projectreg">
+                    Customer Registration
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/Projectreg">
-                    Customer Registration
+                  <Link className="dropdown-item" to="/StaffRegistration">
+                    Staff Registration
                   </Link>
                 </li>
               </ul>
