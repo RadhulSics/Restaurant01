@@ -1,44 +1,19 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 function Staffviewfood() {
-  const [state, setState] = useState([])
-  let stafid = localStorage.getItem("staffId");
-
-  const [staffcartdata, setStaffcartdata] = useState({
-    staffid: stafid,
-    count: "1",
-  });
-  console.log(staffcartdata);
-  const fetchFood = async () => {
-    const response = await axios.get("http://localhost:5000/viewmenu");
-    console.log(response.data.result);
-     setState();
-   };
-   useEffect(() => {
-    fetchFood();
-   }, []);
-
-  const handleClick = (id) => {
-    console.log(id);
-    axios
-        .post(`http://localhost:5000/staffaddcart/${id}`, staffcartdata)
-        .then((res) => {
-          console.log(res);
-          if (res.data.status === 200) {
-            console.log(res.data.msg)
-          } else {
-            alert(res.data.msg);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-
+    const [state, setState] = useState([]);
+    const fetchFood = async () => {
+        const response=await axios.post("http://localhost:5000/viewmenu");
+        console.log(response.data.result);
+        setState(response.data.result);
+      };
+      useEffect(() => {
+        fetchFood();
+      }, []);
   return (
+    
     <div className="m-4">
+      <h1>MENU ITEMS</h1>
       <ul style={{ listStyleType: "none" }} className="p-3">
         {state.map((x) => (
           <li key={x._id} className="m-3 p-4 d-inline-flex">
@@ -52,49 +27,25 @@ function Staffviewfood() {
               <div>
                 <h4 className="mt-2">{x.foodname}</h4>
                 <div>
-                  <label className="form-label me-4">Quantity:</label>
-                  <select
-                    name="count"
-                    onChange={(a) => {
-                        setStaffcartdata({
-                            ...staffcartdata,
-                            [a.target.name]: a.target.value,
-                          });
-                      x.amount=x.price*a.target.value;
-                    }}
-                  >
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
-                  </select>
+                  <h5 className="mt-2">{x.category}</h5>
+                <div>
                   <h4 className="mb-2">
                     Price: {"\u20B9"}
-                    {(x.amount)?(x.amount):(x.price)}
+                    {x.amount ? x.amount : x.price}
                   </h4>
+               
+
                 </div>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    handleClick(x._id);
-                  }}
-                >
-                  Buy now
-                </button>
+                </div>
               </div>
             </div>
           </li>
         ))}
       </ul>
-    </div>  );
+      <button type="button" class="btn btn-primary">View order</button>
+    </div>
+
+  );
 }
 
-
 export default Staffviewfood;
-

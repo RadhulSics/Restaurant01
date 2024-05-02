@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
-//  import {useNavigate} from "react-router-dom"
+ import {useNavigate} from "react-router-dom"
 
- //import {useNavigate} from "react-router-dom"
+ 
 
-//  import img2 from '../Assests/img2.jpeg'
 
- import img2 from '../Assests/img2.jpeg'
+
+
 
 
 import axios from 'axios';
 
 function Staffslogin() {
-    // const navigate=useNavigate()
+     const navigate=useNavigate()
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -32,7 +32,7 @@ function Staffslogin() {
         alert(res.data.msg);
         localStorage.setItem("staffId", res.data.result._id);
         localStorage.getItem("fname", res.data.result.fname);
-        //  navigate("/staffviewfood");
+          navigate("/staffviewfood");
          window.location.reload(false);
       } else {
         alert(res.data.msg);
