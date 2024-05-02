@@ -49,8 +49,8 @@ function App() {
           <Route path="/Editfooddetails" element={<Editfooddetails />} />
           <Route path="/Payment" element={<Payment />} />
           {/* <Route path="/Viewfood" element={<Viewfood />} /> */}
-          <Route path="/StaffsLogin" element={<StaffsLogin />} />
-          <Route path="/Staffviewfood.js" element={<Viewfood />} />
+          <Route path="/StaffsLogin" element={<Staffslogin />} />
+          <Route path="/Staffviewfood.js" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
         </Routes>
