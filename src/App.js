@@ -28,7 +28,7 @@ import Payment from "./components/Payment";
 import StaffRegistration from "./components/StaffRegistration";
 import Staffviewfood from './components/Staffviewfood';
 import Staffforgotpassword from './components/StaffforgotPassword';
-import Staffviewfood from "./components/Staffviewfood";
+import Staffslogin from "./components/StaffsLogin";
 function App() {
   return (
    <div className="App">

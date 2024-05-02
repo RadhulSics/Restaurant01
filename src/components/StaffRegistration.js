@@ -1,8 +1,10 @@
 import React, { useState } from "react";
  import axios from "axios";
 import img2 from '../Assests/img2.jpeg'
+import {useNavigate} from "react-router-dom"
 //  import "./Staffregistration.css"
 function Staffregister() {
+  const navigate=useNavigate()
   const [data, setData] = useState({
     fname: "",
     lname: "",
@@ -30,6 +32,7 @@ function Staffregister() {
           console.log(res);
           if (res.data.status === 200) {
             alert(res.data.msg);
+            navigate("/Staffslogin");
             window.location.reload(false);
           } else {
             alert(res.data.msg);

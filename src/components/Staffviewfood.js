@@ -2,13 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 function Staffviewfood() {
   const [state, setState] = useState([])
-  let stafid = localStorage.getItem("staffId");
+  
 
-  const [staffcartdata, setStaffcartdata] = useState({
-    staffid: stafid,
-    count: "1",
-  });
-  console.log(staffcartdata);
   const fetchFood = async () => {
     const response = await axios.get("http://localhost:3000/Customerviewmenu");
     console.log(response.data.result);
@@ -19,23 +14,7 @@ function Staffviewfood() {
    }, []);
    
 
-  const handleClick = (id) => {
-    console.log(id);
-    axios
-        .post(`http://localhost:3000/staffaddcart/${id}`, staffcartdata)
-        .then((res) => {
-          console.log(res);
-          if (res.data.status === 200) {
-            console.log(res.data.msg)
-          } else {
-            alert(res.data.msg);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-
+  
   return (
     
     <div className="m-4">
