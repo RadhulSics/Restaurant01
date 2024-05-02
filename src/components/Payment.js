@@ -42,6 +42,7 @@ function Payment() {
           .catch((err) => {
             console.log(err);
           });
+          
         axios
           .post(`http://localhost:3500/cartitems/${custid}`)
           .then((res) => {

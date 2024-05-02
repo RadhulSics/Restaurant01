@@ -10,6 +10,7 @@ function Restaurantgallery() {
     <div style={{ position: "relative" }}>
     <img src={food1} style={{ width: "100%", height: "auto" }} alt="food1" />
     <div
+    
       style={{
         position: "absolute",
         top: "50%",

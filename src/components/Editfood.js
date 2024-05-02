@@ -5,7 +5,7 @@ import Admindashboard from "./Admindashboard";
 function Editfood() {
   const [state, setState] = useState([]);
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:5000/viewmenu");
+    const response = await axios.post("http://localhost:5000/viewmenu");
     console.log(response.data.result);
     setState(response.data.result);
   };
@@ -13,6 +13,7 @@ function Editfood() {
     fetchFood();
   }, []);
 
+  
   const handleClick = (id) => {
     axios
       .post(`http://localhost:5000/deletefood/${id}`)

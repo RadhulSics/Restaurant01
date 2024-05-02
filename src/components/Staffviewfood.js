@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -18,6 +19,7 @@ function Staffviewfood() {
    useEffect(() => {
     fetchFood();
    }, []);
+   
 
   const handleClick = (id) => {
     console.log(id);
@@ -96,3 +98,4 @@ function Staffviewfood() {
 
 
 export default Staffviewfood;
+

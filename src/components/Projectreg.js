@@ -28,7 +28,7 @@ function Projectreg() {
       alert("You registered succesfully"); 
       const result= await axios.post("http://localhost:5000/addSchema",state)
       console.log("result",result);
-      navigate("/Customerviewmenu")
+      navigate("")
      
     }
   }
@@ -38,6 +38,7 @@ function Projectreg() {
     //   class="form-control d-flex mx-auto"
     //   style={{ width: "30rem", marginTop: "8rem", backgroundColor:"rgba" }}
     >
+      
       
       <form onSubmit={Submit}>
       <h1>Create Your Account</h1>
