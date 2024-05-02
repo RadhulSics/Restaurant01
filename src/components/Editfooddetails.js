@@ -1,16 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import Admindashboard from "./Admindashboard";
 function Editfooddetails() {
-  const { id } = useParams();
+  const { id }= useParams();
   const navigate = useNavigate()
 
   const [data, setData] = useState({
     foodname: "",
     image: "",
     price: "",
-    amount: "",
+    category: ""
   });
 
   useEffect(() => {
@@ -19,12 +19,12 @@ function Editfooddetails() {
       .get(`http://localhost:5000/viewone/${id}`)
       .then((res) => {
         console.log(res.data.data);
-        setData(res.data.data);
+      setData(res.data.data);
       })
       .catch((err) => {
         console.log(err, "err");
       });
-  }, []);
+  }, [id]);
 
   const handleChange = (a) => {
     if (a.target.name === "image") {
@@ -34,20 +34,37 @@ function Editfooddetails() {
     }
   };
   console.log(data);
-  const handleUpdate= (a) => {
+  const handleUpdate = (a) => {
     a.preventDefault();
-    axios.post(`http://localhost:5000/editfooddetails/${id}`, data)
+    const formData = new FormData();
+    formData.append("foodname",data.foodname);
+    formData.append("image",data.image);
+    formData.append("price",data.price);
+    formData.append("category",data.category);
+    axios
+      .post(`http://localhost:5000/editfooddetails/${id}`,formData
+      ,{
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
         console.log(res);
-        alert("Updated successfully");
-        navigate("/Editfood")
+        alert("updated succesfully");
+        navigate("/editfood")
       })
       .catch((err) => {
         console.log("Error", err);
+        alert("failed to update")
       });
+   
   };
 
   return (
+    <div style={{ display: "flex" }}>
+      <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>
+        <Admindashboard />
+      </div>
     <div
       className="mx-auto shadow-lg"
       style={{
@@ -103,13 +120,13 @@ function Editfooddetails() {
         </div>
         <div className="d-flex p-2 ps-3">
           <label className="form-label" style={{ width: "7.5rem" }}>
-            amount:
+           category:
           </label>
           <textarea
             type="text"
-            placeholder="Enter the amount"
-            name="amount"
-            value={data.amount}
+            placeholder="category"
+            name="category"
+            value={data.category}
             onChange={handleChange}
             style={{ width: "15rem" }}
             className="form-control"
@@ -122,7 +139,16 @@ function Editfooddetails() {
         </div>
       </form>
     </div>
+    </div>
   );
 }
 
 export default Editfooddetails;
+
+
+
+
+
+
+
+
