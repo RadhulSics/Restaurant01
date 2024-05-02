@@ -1,6 +1,6 @@
 import React, { useState } from "react";
  //import {useNavigate} from "react-router-dom"
- import img2 from '../Assests/img2.jpeg'
+//  import img2 from '../Assests/img2.jpeg'
 import axios from 'axios';
 
 function Staffslogin() {
@@ -36,8 +36,7 @@ function Staffslogin() {
     
   };
   return (
-    <div className="mb-5" 
-      style={{ background: `url(${img2})`, backgroundSize: "cover",width:"100%"}}>
+    <div className="mb-5" >
     <form >
       
         <div className="form-control mx-auto d-block "

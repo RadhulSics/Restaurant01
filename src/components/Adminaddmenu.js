@@ -23,7 +23,7 @@ function Adminaddmenu() {
   const handleSubmit = (a) => {
     a.preventDefault();
     console.log(data);
-    axios.post("http://localhost:3000/addmenu", data, {
+    axios.post("http://localhost:5000/addmenu", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -32,9 +32,8 @@ function Adminaddmenu() {
     .then((res) => {
       console.log(res);
       if (res.data.status === 200) {
-       alert(res.data.msg);
-      }else{
-        alert("addedsucessfully");
+      //  alert(res.data.msg);
+      alert("added successfully")
       }
     })
     .catch((err) => {

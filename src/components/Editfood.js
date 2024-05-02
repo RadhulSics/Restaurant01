@@ -28,7 +28,7 @@ function Editfood() {
         console.log(err);
       });
   };
-
+  
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>
@@ -53,7 +53,7 @@ function Editfood() {
                   {x.price}
                 </h4>
                 <div>
-                  <Link to={`/editfooddetails/${x._id}`}>
+                  <Link to={`/editfoodetails/${x._id}`}>
                     <button className="btn btn-primary me-5">Edit item</button>
                   </Link>
                   <button
