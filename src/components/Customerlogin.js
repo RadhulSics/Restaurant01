@@ -24,7 +24,7 @@ function Customerlogin() {
       alert("Login successful");
       console.log("user data",result.data.data);
       localStorage.setItem("custId", result.data.result._id);
-      localStorage.setItem("fname", result.data.result.fname);
+      localStorage.getItem("fname", result.data.result.fname);
       navigate('/Customerviewmenu')
     } else {
       alert("Login failed");
