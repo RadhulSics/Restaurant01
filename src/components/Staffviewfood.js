@@ -12,7 +12,7 @@ function Staffviewfood() {
   });
   console.log(staffcartdata);
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:3000/Customerviewmenu");
+    const response = await axios.get("http://localhost:5000/viewmenu");
     console.log(response.data.result);
      setState();
    };
@@ -23,7 +23,7 @@ function Staffviewfood() {
   const handleClick = (id) => {
     console.log(id);
     axios
-        .post(`http://localhost:3000/staffaddcart/${id}`, staffcartdata)
+        .post(`http://localhost:5000/staffaddcart/${id}`, staffcartdata)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
@@ -44,7 +44,7 @@ function Staffviewfood() {
           <li key={x._id} className="m-3 p-4 d-inline-flex">
             <div className="shadow-lg p-3 bg-body-tertiary rounded">
               <img
-                src={`http://localhost:3000/${x.image}`}
+                src={`http://localhost:5000/${x.image}`}
                 className="img-fluid"
                 alt="..."
                 style={{ width: "15rem", height: "15rem" }}

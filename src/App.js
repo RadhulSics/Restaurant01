@@ -23,41 +23,15 @@ import Editfood from "./components/Editfood";
 import Editfooddetails from "./components/Editfooddetails";
 import Payment from "./components/Payment";
 // import Viewfood from "./components/Viewfood";
-import StaffsLogin from "./components/StaffsLogin";
+
 import StaffRegistration from "./components/StaffRegistration";
-import Staffslogin from "./components/StaffsLogin";
+import Staffslogin from "./components/StaffsLogin"
 import Staffviewfood from './components/Staffviewfood';
 import Staffforgotpassword from './components/StaffforgotPassword';
 
-
 function App() {
   return (
-    <div className="App">
-<BrowserRouter>
-      <Nav/>
-      {/* <Restaurantgallery/> */}
-      <Routes>
-        <Route path='/Forgotpassword'element={<Forgotpassword/>}/>
-        <Route path='/Projectreg'element={<Projectreg/>}/>
-        <Route path='/'element={<Restaurantgallery/>}/>
-        <Route path='/Customerviewmenu'element={<Customerviewmenu/>}/>
-        <Route path='/Adlogin'element={<Adlogin/>}/>
-        <Route path='/Admindashboard'element={<Admindashboard/>}/>
-        <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
-        <Route path='/Customerlogin'element={<Customerlogin/>}/>
-        <Route path='/Customerhomepage'element={<Customerhomepage/>}/>
-        <Route path='/Adminaddmenu'element={<Adminaddmenu/>}/>
-        <Route path="/StaffRegistration" element={<StaffRegistration />} />
-        <Route path="/StaffLogin" element={<Staffslogin />} />
-        <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
-        <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
-
-        
-
-      </Routes>
-function App() {
-  return (
-    <div className="App">
+   <div className="App">
       <BrowserRouter>
         <Nav />
         {/* <Restaurantgallery/> */}
@@ -77,8 +51,10 @@ function App() {
           <Route path="/Editfooddetails" element={<Editfooddetails />} />
           <Route path="/Payment" element={<Payment />} />
           {/* <Route path="/Viewfood" element={<Viewfood />} /> */}
-          <Route path="/StaffsLogin" element={<StaffsLogin />} />
+          <Route path="/StaffsLogin" element={<Staffslogin />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
+          <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>} />
+          <Route path="/Staffviewfood" element={<Staffviewfood />} />
         </Routes>
       </BrowserRouter>
     </div>
