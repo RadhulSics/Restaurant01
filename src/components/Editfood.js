@@ -13,6 +13,7 @@ function Editfood() {
     fetchFood();
   }, []);
 
+  
   const handleClick = (id) => {
     axios
       .post(`http://localhost:5000/deletefood/${id}`)

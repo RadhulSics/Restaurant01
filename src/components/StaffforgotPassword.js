@@ -7,6 +7,7 @@ function Staffforgotpassword() {
     newpassword: "",
   });
 
+  
   const handleChange = (a) => {
     setData({ ...Data, [a.target.name]: a.target.value });
   };

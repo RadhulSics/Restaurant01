@@ -91,6 +91,7 @@ function Forgotpassword() {
               required
             ></input>
           </div>
+          
           <div className="text-center mt-3 mb-3">
             <button className="w-25 btn btn-primary" onClick={handleSubmit}>
               Change
