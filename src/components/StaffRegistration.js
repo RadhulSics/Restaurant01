@@ -23,7 +23,7 @@ function Staffregister() {
     if (data.password === data.confirmpassword) {
       console.log(data);
       axios
-        .post("http://localhost:3000/staffregistration", data)
+        .post("http://localhost:5000/staffregistration", data)
         .then((res) => {
           console.log(res);
           if (res.data.status === 200) {
