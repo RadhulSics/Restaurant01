@@ -1,16 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Admindashboard from "./Admindashboard";
+
 function Editfooddetails() {
-  const { id }= useParams();
+  const { id } = useParams();
   const navigate = useNavigate()
 
   const [data, setData] = useState({
     foodname: "",
     image: "",
     price: "",
-    category: ""
+    category: "",
   });
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Editfooddetails() {
       .get(`http://localhost:5000/viewone/${id}`)
       .then((res) => {
         console.log(res.data.data);
-      setData(res.data.data);
+        setData(res.data.data);
       })
       .catch((err) => {
         console.log(err, "err");
@@ -36,41 +36,25 @@ function Editfooddetails() {
   console.log(data);
   const handleUpdate = (a) => {
     a.preventDefault();
-    const formData = new FormData();
-    formData.append("foodname",data.foodname);
-    formData.append("image",data.image);
-    formData.append("price",data.price);
-    formData.append("category",data.category);
     axios
-      .post(`http://localhost:5000/editfooddetails/${id}`,formData
-      ,{
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post(`http://localhost:5000/editfooddetails/${id}`, data)
       .then((res) => {
         console.log(res);
-        alert("updated succesfully");
-        navigate("/editfood")
+        alert("Updated successfully");
+        navigate("/Editfood")
       })
       .catch((err) => {
         console.log("Error", err);
-        alert("failed to update")
       });
-   
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ flex: "0 0 200px", backgroundColor: "#f0f0f0" }}>
-        <Admindashboard />
-      </div>
     <div
       className="mx-auto shadow-lg"
       style={{
         width: "25rem",
         marginTop: "7rem",
-        backgroundColor: "lightseagreen",
+        backgroundColor: "lightblue",
         borderRadius: "0.5rem",
       }}
     >
@@ -120,11 +104,11 @@ function Editfooddetails() {
         </div>
         <div className="d-flex p-2 ps-3">
           <label className="form-label" style={{ width: "7.5rem" }}>
-           category:
+            category:
           </label>
           <textarea
             type="text"
-            placeholder="category"
+            placeholder="Enter the Category"
             name="category"
             value={data.category}
             onChange={handleChange}
@@ -133,22 +117,13 @@ function Editfooddetails() {
           ></textarea>
         </div>
         <div className="pb-3 mt-3 text-center">
-          <button className="btn btn-success" onClick={handleUpdate}>
+          <button className="btn btn-primary" onClick={handleUpdate}>
             Update item
           </button>
         </div>
       </form>
     </div>
-    </div>
   );
 }
 
 export default Editfooddetails;
-
-
-
-
-
-
-
-

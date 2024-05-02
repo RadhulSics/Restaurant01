@@ -7,7 +7,6 @@ import Forgotpassword from "./components/Forgotpassword";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Restaurantgallery from "./components/Restaurantgallery";
-// import Customerviewmenu from './components/Customerviewmenu';
 import Nav from "./components/Nav";
 import "./components/Nav.css";
 import Adlogin from "./components/Adlogin";
@@ -25,9 +24,9 @@ import Payment from "./components/Payment";
 import Viewfood from "./components/Viewfood";
 import StaffsLogin from "./components/StaffsLogin";
 import StaffRegistration from "./components/StaffRegistration";
-import Staffslogin from "./components/StaffsLogin";
 import Staffviewfood from './components/Staffviewfood';
 import Staffforgotpassword from './components/StaffforgotPassword';
+import ViewOrders from "./components/ViewOrders";
 function App() {
   return (
     <div className="App">
@@ -36,7 +35,7 @@ function App() {
         {/* <Restaurantgallery/> */}
         <Routes>
           <Route path="/Forgotpassword" element={<Forgotpassword />} />
-          <Route path="/Projectreg" element={<Projectreg />} />
+          <Route path="/Projectreg" element={<Projectreg />} />        
           <Route path="/" element={<Restaurantgallery />} />
           <Route path="/Restaurantgallery" element={<Restaurantgallery />} />
           <Route path="/Adlogin" element={<Adlogin />} />
@@ -53,6 +52,7 @@ function App() {
           <Route path="/Staffviewfood.js" element={<Viewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
+          <Route path="/ViewOrders" element={<ViewOrders/>}/>
         </Routes>
       </BrowserRouter>
      
