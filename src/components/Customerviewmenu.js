@@ -1,105 +1,97 @@
-import React from "react";
-import menu1 from "../Assests/menu1.jpg";
-import menu2 from "../Assests/menu2.jpg";
-import menu3 from "../Assests/menu3.jpg";
-import menu4 from "../Assests/menu4.jpg";
-import menu5 from "../Assests/menu5.jpg";
-import menu6 from "../Assests/menu6.jpg";
-
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 function Customerviewmenu() {
+  const [state, setState] = useState([]);
+  let custid = localStorage.getItem("custId");
+
+  const [cartdata, setCartdata] = useState({
+    userid: custid,
+    count: "1",
+  });
+  console.log(cartdata);
+  const fetchFood = async () => {
+    const response = await axios.post("http://localhost:5000/viewmenu");
+    console.log(response.data.result);
+    setState(response.data.result);
+  };
+  useEffect(() => {
+    fetchFood();
+  }, []);
+
+  const handleClick = (id) => {
+    console.log(id);
+    axios
+        .post(`http://localhost:5000/addcart/${id}`, cartdata)
+        .then((res) => {
+          console.log(res);
+          if (res.data.status === 200) {
+            alert(res.data.msg);
+          } else {
+            alert(res.data.msg);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  };
+
   return (
-    <div>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card">
+    <div className="m-4">
+    <ul style={{ listStyleType: "none" }} className="p-3">
+      {state.map((x) => (
+        <li key={x._id} className="m-3 p-4 d-inline-flex">
+          <div className="shadow-lg p-3 bg-body-tertiary rounded">
             <img
-              src={menu1}
-              style={{ width: "25rem", height: "23rem", position: "relative" }}
-              class="card-img-top"
+              src={`http://localhost:5000/${x.image}`}
+              className="img-fluid"
               alt="..."
+              style={{ width: "15rem", height: "15rem" }}
             />
-            <div class="card-body">
-              <h5 class="card-title">Noodles</h5>
-              <p class="card-text">Rs:160</p>
+            <div>
+              <h4 className="mt-2">{x.foodname}</h4>
+              <div>
+                <label className="form-label me-4">Quantity:</label>
+                <select
+                  name="count"
+                  onChange={(a) => {
+                    setCartdata({
+                      ...cartdata,
+                      [a.target.name]: a.target.value,
+                    });
+                    x.amount=x.price*a.target.value;
+                  }}
+                >
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                  <option value={6}>6</option>
+                  <option value={7}>7</option>
+                  <option value={8}>8</option>
+                  <option value={9}>9</option>
+                  <option value={10}>10</option>
+                </select>
+                <h4 className="mb-2">
+                  Price: {"\u20B9"}
+                  {(x.amount)?(x.amount):(x.price)}
+                </h4>
+              </div>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  handleClick(x._id);
+                }}
+              >
+                Add cart
+              </button>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src={menu2}
-              style={{ width: "25rem", height: "23rem", position: "relative" }}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Burger</h5>
-              <p class="card-text">Rs:200</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src={menu3}
-              style={{ width: "25rem", height: "23rem", position: "relative" }}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Chicken Biriyani</h5>
-              <p class="card-text">Rs:180</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src={menu4}
-              style={{ width: "25rem", height: "23rem", position: "relative" }}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Alfah Mandi</h5>
-              <p class="card-text">Rs:820(full)</p>
-              <p class="card-text">Rs:430(half)</p>
-              <p class="card-text">Rs:220(quater)</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src={menu5}
-              style={{ width: "25rem", height: "23rem", position: "relative" }}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Porotta & Beef (Combo)</h5>
-              <p class="card-text">Rs:100</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src={menu6}
-              style={{ width: "25rem", height: "23rem", position: "relative" }}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Beef Biriyani</h5>
-              <p class="card-text">Rs:200</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 }
 
-export default Customerviewmenu;
+export default Customerviewmenu
