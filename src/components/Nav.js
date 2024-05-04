@@ -13,15 +13,13 @@ function Nav() {
     localStorage.removeItem("fname");
     alert("You have logged out");
     navigate("/Customerlogin");
-    window.location.reload(false);
   };
 
   const handleStaffLogout = () => {
     localStorage.removeItem("staffId");
     localStorage.removeItem("sfname");
     alert("You have logged out");
-    navigate("/stafflogin");
-    window.location.reload(false);
+    navigate("/Staffslogin");
   };
 
   return (
@@ -48,7 +46,7 @@ function Nav() {
               {custid ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="">
+                    <Link className="nav-link" to="/ViewOrders">
                       View Orders
                     </Link>
                   </li>
@@ -58,19 +56,19 @@ function Nav() {
                     </Link>
                   </li>
                   <li className="nav-item dropdown">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="/"
-                      id="navbarDropdown"
+                      id="navbarDropdownCustomer"
+                      to="#"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       {custname}
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    </Link>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
                       <li>
-                        <Link className="dropdown-item" onClick={handleCustomerLogout}>
+                        <Link className="dropdown-item" onClick={handleCustomerLogout} to="/">
                           Logout
                         </Link>
                       </li>
@@ -95,19 +93,19 @@ function Nav() {
                     </Link>
                   </li>
                   <li className="nav-item dropdown">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="/"
-                      id="navbarDropdown"
+                      id="navbarDropdownStaff"
+                      to="#"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       {staffname}
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    </Link>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownStaff">
                       <li>
-                        <Link className="dropdown-item" onClick={handleStaffLogout}>
+                        <Link className="dropdown-item" onClick={handleStaffLogout} to="/">
                           Logout
                         </Link>
                       </li>
@@ -124,15 +122,15 @@ function Nav() {
                   <li className="nav-item dropdown">
                     <Link
                       className="nav-link dropdown-toggle"
-                      to="/"
-                      id="navbarDropdown"
+                      to="#"
+                      id="navbarDropdownRegister"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Registration
                     </Link>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownRegister">
                       <li>
                         <Link className="dropdown-item" to="/Projectreg">
                           Customer
@@ -148,15 +146,15 @@ function Nav() {
                   <li className="nav-item dropdown">
                     <Link
                       className="nav-link dropdown-toggle"
-                      to="/"
-                      id="navbarDropdown"
+                      to="#"
+                      id="navbarDropdownLogin"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Login
                     </Link>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownLogin">
                       <li>
                         <Link className="dropdown-item" to="/StaffsLogin">
                           Staff

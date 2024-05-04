@@ -1,15 +1,11 @@
-// Customerviewmenu.js
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useHistory from react-router-dom
+import { useNavigate } from "react-router-dom"; 
 
 function Customerviewmenu() {
   const [state, setState] = useState([]);
-  const [cartdata, setCartdata] = useState({
-    userid: localStorage.getItem("custId"),
-    count: "1",
-  });
-  const navigate = useNavigate(); // Initialize useHistory
+  const navigate = useNavigate(); 
 
   const fetchFood = async () => {
     try {
@@ -25,13 +21,13 @@ function Customerviewmenu() {
   }, []);
 
   const handleClick = (id, foodName, price) => {
-    setCartdata((prevData) => ({
-      ...prevData,
+    const items = [{
       foodId: id,
       foodName: foodName,
       price: price,
-    }));
-    navigate("/OrderNow"); // Redirect to OrderNow page
+      quantity: 1 
+    }];
+    navigate("/OrderNow", { state: { items } }); 
   };
 
   return (
