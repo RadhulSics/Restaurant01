@@ -37,24 +37,25 @@ function Forgotpassword() {
     <div className="mb-5">
       <form>
         <div
-          className="form-control mx-auto d-block "
+          className="form-control mx-auto d-block"
           style={{
             width: "25rem",
             marginTop: "7rem",
             backgroundColor: "lightblue",
+            textAlign: "center",
           }}
         >
           <div className="p-2 w-100">
-            <h2 className="text-center mt-3 mb-3" style={{ color: "black" }}>
+            <h2 className="text-center mt-3 mb-3" style={{ color: "black", textDecoration: "none" }}>
               Customer Reset Password
             </h2>
           </div>
-          <div className="d-flex p-2">
+          <div className="d-flex justify-content-center">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
               Email:
             </label>
             <input
-              className="form-control "
+              className="form-control"
               style={{ width: "13rem" }}
               name="email"
               placeholder="Enter Username"
@@ -63,13 +64,13 @@ function Forgotpassword() {
               required
             ></input>
           </div>
-          <div className="d-flex p-2">
+          <div className="d-flex justify-content-center">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
-             Enter New Password:
+              Enter New Password:
             </label>
             <input
-              className="form-control "
-              style={{ width: "13rem",height:"1rem" }}
+              className="form-control"
+              style={{ width: "13rem" }}
               name="password"
               placeholder="Enter Password"
               type="password"
@@ -77,12 +78,12 @@ function Forgotpassword() {
               required
             ></input>
           </div>
-          <div className="d-flex p-2">
+          <div className="d-flex justify-content-center">
             <label className="form-label mt-2" style={{ width: "9rem" }}>
               Confirm Password:
             </label>
             <input
-              className="form-control "
+              className="form-control"
               style={{ width: "13rem" }}
               name="confirmnewpassword" 
               placeholder="Re-enter the Password"
