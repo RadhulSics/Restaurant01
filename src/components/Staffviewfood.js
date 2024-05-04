@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 function Staffviewfood() {
-  const [state, setState] = useState([])
-  
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    fetchFood();
+  }, []);
 
   const fetchFood = async () => {
-    const response = await axios.get("http://localhost:3000/Customerviewmenu");
-    console.log(response.data.result);
-     setState();
-   };
-   useEffect(() => {
-    fetchFood();
-   }, []);
-   
+    try {
+      const response = await axios.get("http://localhost:5000/Customerviewmenu");
+      setState(response.data.result);
+    } catch (error) {
+      console.error("Error fetching food items:", error);
+    }
+  };
 
-  
   return (
-    
     <div className="m-4">
       <h1>MENU ITEMS</h1>
       <ul style={{ listStyleType: "none" }} className="p-3">
@@ -33,23 +34,20 @@ function Staffviewfood() {
                 <h4 className="mt-2">{x.foodname}</h4>
                 <div>
                   <h5 className="mt-2">{x.category}</h5>
-                <div>
                   <h4 className="mb-2">
                     Price: {"\u20B9"}
                     {x.amount ? x.amount : x.price}
                   </h4>
-               
-
-                </div>
                 </div>
               </div>
             </div>
           </li>
         ))}
       </ul>
-      <button type="button" class="btn btn-primary">View order</button>
+      <button type="button" className="btn btn-primary">
+        View order
+      </button>
     </div>
-
   );
 }
 

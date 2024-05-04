@@ -1,5 +1,7 @@
+// Customerviewmenu.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useHistory from react-router-dom
 
 function Customerviewmenu() {
   const [state, setState] = useState([]);
@@ -7,6 +9,7 @@ function Customerviewmenu() {
     userid: localStorage.getItem("custId"),
     count: "1",
   });
+  const navigate = useNavigate(); // Initialize useHistory
 
   const fetchFood = async () => {
     try {
@@ -21,19 +24,14 @@ function Customerviewmenu() {
     fetchFood();
   }, []);
 
-  const handleClick = (id) => {
-    axios
-      .post(`http://localhost:5000/addcart/${id}`, cartdata)
-      .then((res) => {
-        if (res.data.status === 200) {
-          alert(res.data.msg);
-        } else {
-          alert(res.data.msg);
-        }
-      })
-      .catch((err) => {
-        console.error("Error adding to cart:", err);
-      });
+  const handleClick = (id, foodName, price) => {
+    setCartdata((prevData) => ({
+      ...prevData,
+      foodId: id,
+      foodName: foodName,
+      price: price,
+    }));
+    navigate("/OrderNow"); // Redirect to OrderNow page
   };
 
   return (
@@ -51,41 +49,17 @@ function Customerviewmenu() {
                 />
                 <div>
                   <h4 className="mt-2">{x.foodname}</h4>
-                  <div>
-                    <label className="form-label me-4">Quantity:</label>
-                    <select
-                      name="count"
-                      onChange={(e) => {
-                        const amount = x.price * parseInt(e.target.value);
-                        setCartdata({
-                          ...cartdata,
-                          [e.target.name]: e.target.value,
-                        });
-                        setState(
-                          state.map((item) =>
-                            item._id === x._id ? { ...item, amount } : item
-                          )
-                        );
-                      }}
-                    >
-                      {[...Array(10)].map((_, i) => (
-                        <option key={i + 1} value={i + 1}>
-                          {i + 1}
-                        </option>
-                      ))}
-                    </select>
-                    <h4 className="mb-2">
-                      Price: {"\u20B9"}
-                      {x.amount ? x.amount : x.price}
-                    </h4>
-                  </div>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => handleClick(x._id)}
-                  >
-                    Add cart
-                  </button>
+                  <h4 className="mb-2">
+                    Price: {"\u20B9"}
+                    {x.amount ? x.amount : x.price}
+                  </h4>
                 </div>
+                <button
+                  className="btn btn-green"
+                  onClick={() => handleClick(x._id, x.foodname, x.amount ? x.amount : x.price)}
+                >
+                  Order Now
+                </button>
               </div>
             )}
           </li>
@@ -96,4 +70,3 @@ function Customerviewmenu() {
 }
 
 export default Customerviewmenu;
-
