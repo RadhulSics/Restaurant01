@@ -29,6 +29,8 @@ import StaffRegistration from "./components/StaffRegistration";
 import Staffviewfood from './components/Staffviewfood';
 import Staffforgotpassword from './components/StaffforgotPassword';
 import Staffslogin from "./components/StaffsLogin";
+
+
 function App() {
   return (
    <div className="App">
@@ -54,6 +56,8 @@ function App() {
           <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
+         
+          
         </Routes>
       </BrowserRouter>
      
