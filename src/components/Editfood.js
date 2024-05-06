@@ -54,7 +54,7 @@ function Editfood() {
                   {x.price}
                 </h4>
                 <div>
-                  <Link to={`/editfoodetails/${x._id}`}>
+                <Link to={`/editfooddetails/${x._id}`}>
                     <button className="btn btn-primary me-5">Edit item</button>
                   </Link>
                   <button

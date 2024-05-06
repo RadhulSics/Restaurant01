@@ -39,7 +39,7 @@ function App() {
       
         <Routes>
           <Route path="/Forgotpassword" element={<Forgotpassword />} />
-          <Route path="/Projectreg" element={<Projectreg />} />
+          <Route path="/Projectreg" element={<Projectreg />} />        
           <Route path="/" element={<Restaurantgallery />} />
           <Route path="/Restaurantgallery" element={<Restaurantgallery />} />
           <Route path="/Adlogin" element={<Adlogin />} />
@@ -56,6 +56,7 @@ function App() {
           <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
+         
         </Routes>
       </BrowserRouter>
      
