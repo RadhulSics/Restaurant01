@@ -20,7 +20,7 @@ function Ordernow() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/addOrder", order);
+      const response = await axios.post("http://localhost:5000/addorder", order);
       console.log(response.data);
     } catch (error) {
       console.error("Error placing order:", error);
@@ -36,7 +36,7 @@ function Ordernow() {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", width: "100vw", margin: 0 }}>
       <h4 style={{ textAlign: "center" }}>Order Details</h4>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", width: "500px", padding: "20px", border: "1px solid #ddd", borderRadius: "5px" }}>
+      <form style={{ display: "flex", flexDirection: "column", width: "500px", padding: "20px", border: "1px solid #ddd", borderRadius: "5px" }}>
         {order.items.map((item) => (
           <div key={item.foodId} style={{ marginBottom: "10px" }}>
             <h4>Food: {item.foodName}</h4>
@@ -52,7 +52,7 @@ function Ordernow() {
           </div>
         ))}
         <h3>Total Amount: ₹{totalAmount}</h3>
-        <button type="submit" style={{ backgroundColor: "green", color: "white", padding: "5px 10px", fontSize: "12px" }}>
+        <button type="submit"  onSubmit={handleSubmit} style={{ backgroundColor: "green", color: "white", padding: "5px 10px", fontSize: "12px" }}>
           PAY NOW
         </button>
         <button type="button" onClick={handleCancel} style={{ backgroundColor: "red", color: "white", padding: "5px 10px", fontSize: "12px", marginTop: "10px" }}>
