@@ -28,7 +28,9 @@ import StaffsLogin from "./components/StaffsLogin";
 import StaffRegistration from "./components/StaffRegistration";
 import Staffviewfood from './components/Staffviewfood';
 import Staffforgotpassword from './components/StaffforgotPassword';
-import ViewOrders from "./components/ViewOrders";
+import "./components/Payment.css"
+
+
 function App() {
   return (
     <div className="App">
@@ -54,7 +56,7 @@ function App() {
           <Route path="/Staffviewfood.js" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
-          <Route path="/ViewOrders" element={<ViewOrders/>}/>
+         
         </Routes>
       </BrowserRouter>
      
