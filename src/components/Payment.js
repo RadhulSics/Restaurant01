@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Pay() { 
+function Payment() { 
   const [cardInfo, setCardInfo] = useState({
     number: "",
     name: "",
@@ -101,4 +101,4 @@ function Pay() {
   );
 }
 
-export default Pay;
+export default Payment;
