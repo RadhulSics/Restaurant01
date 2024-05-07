@@ -26,6 +26,7 @@ import StaffRegistration from "./components/StaffRegistration";
 import Staffviewfood from "./components/Staffviewfood";
 import Staffforgotpassword from "./components/StaffforgotPassword";
 import Staffslogin from "./components/StaffsLogin";
+import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
 import "./components/Payment.css"
 
@@ -48,8 +49,9 @@ function App() {
           <Route path="/Adminviewmenu" element={<Adminviewmenu />} />
           <Route path="/Editfood" element={<Editfood />} />
           <Route path="/Editfooddetails" element={<Editfooddetails />} />
-      
-          <Route path="/Payment" element={<Payment />} />
+          <Route path="/Ordernow/:id" element={<OrderNow />} />
+          <Route path="/Payment" element={<Payment/>} />
+  
           <Route path="/StaffsLogin" element={<Staffslogin />} />
           <Route path="/Staffviewfood" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
