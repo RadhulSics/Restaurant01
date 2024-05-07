@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Payment() { 
+  const navigate=useNavigate();
   const [cardInfo, setCardInfo] = useState({
     number: "",
     name: "",
@@ -27,6 +30,8 @@ function Payment() {
 
   const handleCancel = () => {  
     alert("Payment cancelled.");
+    navigate("/Ordernow");
+   
   };
 
   return (
