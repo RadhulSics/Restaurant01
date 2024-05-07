@@ -1,11 +1,10 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function Customerviewmenu() {
   const [state, setState] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const fetchFood = async () => {
     try {
@@ -25,9 +24,9 @@ function Customerviewmenu() {
       foodId: id,
       foodName: foodName,
       price: price,
-      quantity: 1 
+      quantity: 1
     }];
-    navigate("/OrderNow", { state: { items } }); 
+    navigate(`/OrderNow/${id}`, { state: { items } });
   };
 
   return (
