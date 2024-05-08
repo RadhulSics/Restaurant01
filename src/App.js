@@ -51,7 +51,7 @@ function App() {
           <Route path="/Adminaddmenu" element={<Adminaddmenu />} />
           <Route path="/Adminviewmenu" element={<Adminviewmenu />} />
           <Route path="/Editfood" element={<Editfood />} />
-          <Route path="/Editfooddetails" element={<Editfooddetails />} />
+          <Route path="/Editfooddetails/:id" element={<Editfooddetails />} />
           <Route path="/Ordernow/:id" element={<OrderNow />} />
           <Route path="/Payment" element={<Payment/>} />
   
