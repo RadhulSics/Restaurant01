@@ -8,7 +8,7 @@ function Editfood() {
 
   const fetchFood = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/viewmenu");
+      const response = await axios.post("http://localhost:5000/viewmenu");
       setState(response.data.result);
     } catch (error) {
       console.error("Error fetching food items:", error);
