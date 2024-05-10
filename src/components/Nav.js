@@ -68,16 +68,11 @@ function Nav() {
                     </Link>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
                       <li>
-                        <Link className="dropdown-item" onClick={handleCustomerLogout} to="/">
+                        <Link className="dropdown-item" onClick={handleCustomerLogout} to="/Customerlogin">
                           Logout
                         </Link>
                       </li>
                     </ul>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link active" to="/Viewcart">
-                      Cart <span className="badge bg-primary">2</span>
-                    </Link>
                   </li>
                 </>
               ) : staffid ? (
@@ -105,7 +100,7 @@ function Nav() {
                     </Link>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownStaff">
                       <li>
-                        <Link className="dropdown-item" onClick={handleStaffLogout} to="/">
+                        <Link className="dropdown-item" onClick={handleStaffLogout} to="/StaffsLogin">
                           Logout
                         </Link>
                       </li>
