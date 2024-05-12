@@ -23,7 +23,8 @@ function Customerlogin() {
     if (result.data.status === 200) {
       alert("Login successful");
       console.log("user data", result.data.data);
-      localStorage.setItem("userid", result.data.data._id);
+      localStorage.setItem("custId", result.data.data._id);
+      localStorage.setItem("fname", result.data.data.firstname);
       navigate("/Customerviewmenu");
     } else {
       alert("Login failed");

@@ -22,7 +22,7 @@ function Staffslogin() {
         if (res.data.status === 200) {
           alert(res.data.msg);
           localStorage.setItem("staffId", res.data.result._id);
-          localStorage.setItem("fname", res.data.result.fname);
+          localStorage.setItem("sfname", res.data.result.fname);
           navigate("/staffviewfood");
           window.location.reload(false);
         } else {
