@@ -30,8 +30,8 @@ import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
 import "./components/Payment.css"
 import ViewOrders from "./components/ViewOrders";
-import StaffviewOrder from "./components/Staffviweorder";
 import ConfirmOrder from "./components/ConfirmOrder";
+import StaffviewOrder from "./components/StaffviewOrder";
 
 function App() {
   return (
@@ -58,8 +58,8 @@ function App() {
           <Route path="/StaffsLogin" element={<Staffslogin />} />
           <Route path="/Staffviewfood" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
-          <Route path="/StaffviweOrder" element={<StaffviewOrder />} />
           <Route path="/ConfirmOrder/:id" element={<ConfirmOrder />} />
+          <Route path="/StaffviewOrder" element={<StaffviewOrder />} />
           <Route
             path="/Staffforgotpassword"
             element={<Staffforgotpassword />}

@@ -13,6 +13,7 @@ function ConfirmOrder() {
     foodid: foodid.id,
     amount: 0,
     customername: "", // Adding customername field
+    date: new Date(), // Adding date field
   });
 
   const fetchFood = async () => {
@@ -35,10 +36,16 @@ function ConfirmOrder() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     order.amount = parseInt(food.price * order.quantity);
-    const result = await axios.post("http://localhost:5000/staffaddorder", order);
-    console.log("result", result);
-    console.log("orders", order);
-    alert("Order Confirmed");
+    try {
+      const result = await axios.post(`http://localhost:5000/staffaddorder/${order.userId}`, order);
+      console.log("result", result);
+      console.log("orders", order);
+      alert("Order Confirmed");
+      navigate("/StaffviewOrder")
+    } catch (error) {
+      console.error("Error confirming order:", error);
+      alert("Failed to confirm order");
+    }
   };
 
   const handleCancel = () => {
