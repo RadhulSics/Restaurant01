@@ -23,6 +23,7 @@ function Payment() {
       cardInfo.cvc.length === 3
     ) {
       alert("Payment  successfully!");
+      navigate("/Staffvieworderpage")
     } else {
       alert("Please fill all card details.");
     }

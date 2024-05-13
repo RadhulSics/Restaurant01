@@ -29,6 +29,7 @@ import Staffslogin from "./components/StaffsLogin";
 import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
 import "./components/Payment.css"
+import Staffvieworderpage from "./components/Staffvieworderpage"
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Nav />
 
         <Routes>
+          <Route path="/Staffvieworderpage" element={<Staffvieworderpage/>}/>
           <Route path="/Forgotpassword" element={<Forgotpassword />} />
           <Route path="/Projectreg" element={<Projectreg />} />
           <Route path="/" element={<Restaurantgallery />} />
