@@ -7,7 +7,7 @@ import Forgotpassword from "./components/Forgotpassword";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Restaurantgallery from "./components/Restaurantgallery";
-import Customerviewmenu from './components/Customerviewmenu';
+import Customerviewmenu from "./components/Customerviewmenu";
 import Nav from "./components/Nav";
 import "./components/Nav.css";
 import Adlogin from "./components/Adlogin";
@@ -18,31 +18,30 @@ import Adminaddmenu from "./components/Adminaddmenu";
 import Customerlogin from "./components/Customerlogin";
 import "./components/Customerlogin.css";
 
-
 import Adminviewmenu from "./components/Adminviewmenu";
 import Editfood from "./components/Editfood";
 import Editfooddetails from "./components/Editfooddetails";
 
-
-
 import StaffRegistration from "./components/StaffRegistration";
-import Staffviewfood from './components/Staffviewfood';
-import Staffforgotpassword from './components/StaffforgotPassword';
+import Staffviewfood from "./components/Staffviewfood";
+import Staffforgotpassword from "./components/StaffforgotPassword";
 import Staffslogin from "./components/StaffsLogin";
 import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
 import "./components/Payment.css"
 import ViewOrders from "./components/ViewOrders";
+import StaffviewOrder from "./components/Staffviweorder";
+import ConfirmOrder from "./components/ConfirmOrder";
 
 function App() {
   return (
-   <div className="App">
+    <div className="App">
       <BrowserRouter>
         <Nav />
-      
+
         <Routes>
           <Route path="/Forgotpassword" element={<Forgotpassword />} />
-          <Route path="/Projectreg" element={<Projectreg />} />        
+          <Route path="/Projectreg" element={<Projectreg />} />
           <Route path="/" element={<Restaurantgallery />} />
           <Route path="/Restaurantgallery" element={<Restaurantgallery />} />
           <Route path="/Adlogin" element={<Adlogin />} />
@@ -57,13 +56,16 @@ function App() {
           <Route path="/Payment" element={<Payment/>} />
           <Route path="/ViewOrders" element={<ViewOrders/>} />
           <Route path="/StaffsLogin" element={<Staffslogin />} />
-          <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
+          <Route path="/Staffviewfood" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
-          <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
-         
+          <Route path="/StaffviweOrder" element={<StaffviewOrder />} />
+          <Route path="/ConfirmOrder/:id" element={<ConfirmOrder />} />
+          <Route
+            path="/Staffforgotpassword"
+            element={<Staffforgotpassword />}
+          />
         </Routes>
       </BrowserRouter>
-     
     </div>
   );
 }
