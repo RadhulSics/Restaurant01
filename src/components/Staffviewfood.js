@@ -26,11 +26,11 @@ function Staffviewfood() {
       price: price,
       quantity: 1
     }];
-    navigate("/OrderNow", { state: { items } });
+    navigate(`/ConfirmOrder/${id}`, { state: { items } });
   };
 
   return (
-    <div className="m-4" style={{ marginTop: "70px", paddingTop: "20px" }}>
+    <div className="m-4">
       <ul style={{ listStyleType: "none" }} className="p-3">
         {state.map((x) => (
           <li key={x?._id} className="m-3 p-4 d-inline-flex">
@@ -53,7 +53,7 @@ function Staffviewfood() {
                   className="btn btn-green"
                   onClick={() => handleClick(x._id, x.foodname, x.amount ? x.amount : x.price)}
                 >
-                  Place Order
+                   Place Order 
                 </button>
               </div>
             )}
@@ -63,5 +63,7 @@ function Staffviewfood() {
     </div>
   );
 }
+
+
 
 export default Staffviewfood;
