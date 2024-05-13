@@ -59,7 +59,7 @@ function App() {
           <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
-          <Route path="/Customerorders/" element={<Customerorders/>}/>
+          <Route path="/Customerorders" element={<Customerorders/>}/>
          
         </Routes>
       </BrowserRouter>

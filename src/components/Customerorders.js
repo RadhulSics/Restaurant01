@@ -1,75 +1,49 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useFetcher } from "react-router-dom";
 
 function Customerorders() {
-    const [state, setState] = useState([]);
-    const fetchcust_order = async () => {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
         const response = await axios.get("http://localhost:5000/viewCustomerOrders");
-        console.log(response.data.result);
-        setState(response.data.result);
-      };
-      useEffect(() => {
-        fetchcust_order();
-      }, []);
+        setOrders(response.data.result);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
   return (
-    <div className="mt-5">
-        {state.length > 0 ? (
-        <ul
-          style={{ listStyleType: "none", width: "48rem" }}
-          className="p-5 pt-0 mx-auto"
-        >
-          {state.map((x) => (
-            <li
-              key={x._id}
-              className="shadow-lg p-3 bg-body-tertiary rounded mb-4 container-fluid"
-            >
-                <div><h4 className="text-center">Customer Name : {x.userid.fname}</h4></div>
-              <div className="d-flex">
-              <img
-                src={`http://localhost:5000/${x.foodid.image}`}
-                className="img-fluid me-4"
-                alt="..."
-                style={{ width: "8rem", height: "8rem" }}
-              />
-              <div className="ms-3">
-                <h3 className="mt-2 ms-3">{x.foodid.foodname}</h3>
-                <div className="d-flex mt-5 ms-3">
-                  <h5 className="me-5">
-                    Food price:{" "}
-                    <span className="ms-1">
-                      {"\u20B9"} {x.count * x.amount}
-                    </span>
-                  </h5>
-                </div>
-              </div>
-              <div className="mt-3 ms-2">
-                <h5>
-                  Date:{" "}
-                  <span>
-                    {x.date.slice(0, 10).split("-").reverse().join("/")}
-                  </span>
-                </h5>
-                <h5 className="me-5 mt-5">
-                  Quantity: <span className="ms-1">{x.count}</span>
-                </h5>
-              </div>
-              </div>
+    <div className="container">
+      <h1>Customer Orders</h1>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {orders.length > 0 ? (
+        <ul>
+          {orders.map((order) => (
+            <li key={order._id}>
+              <p>Delivery Address: {order.deliveryAddress}</p>
+              <p>Quantity: {order.quantity}</p>
+              <p>Amount: {order.amount}</p>
+              <p>User ID: {order.userId}</p>
+              <p>Food ID: {order.foodid}</p>
+              <p>Payment Status: {order.paymentstatus ? "Paid" : "Pending"}</p>
             </li>
           ))}
-          <div className="text-center mt-2">
-            <Link to="/admin/Home" className="btn btn-danger">
-              Close
-            </Link>
-          </div>
         </ul>
       ) : (
-        <h2 className="mt-5 mb-3 me-4 text-center fs-3 fw-semibold">
-          Your Order is Empty
-        </h2>
+        <p>No orders found</p>
       )}
     </div>
-  )
+  );
 }
 
-export default Customerorders
+export default Customerorders;
