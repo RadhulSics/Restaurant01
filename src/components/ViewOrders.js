@@ -28,9 +28,9 @@ function ViewOrders() {
   const handleDeleteOrder = async (orderId) => {
     try {
       await axios.post(`http://localhost:5000/cancelOrder`, { orderIds: [orderId] });
-      // Add the deleted order ID to the deletedOrderIds state
+      
       setDeletedOrderIds([...deletedOrderIds, orderId]);
-      // Remove the deleted order from state
+      
       setState((prevState) => prevState.filter((order) => order._id !== orderId));
     } catch (error) {
       console.error("Error deleting order:", error);
@@ -38,7 +38,7 @@ function ViewOrders() {
   };
 
   useEffect(() => {
-    // Update local storage when deletedOrderIds changes
+  
     localStorage.setItem("deletedOrderIds", JSON.stringify(deletedOrderIds));
   }, [deletedOrderIds]);
 
@@ -88,7 +88,7 @@ function ViewOrders() {
             ))}
           <div className="text-center mt-2">
             <Link to="/Customerviewmenu" className="btn btn-danger">
-              Close
+              Go Back
             </Link>
           </div>
         </ul>

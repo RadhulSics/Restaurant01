@@ -33,6 +33,7 @@ import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
 import "./components/Payment.css"
 import ViewOrders from "./components/ViewOrders";
+  
 
 function App() {
   return (
@@ -60,7 +61,7 @@ function App() {
           <Route path="/Staffviewfood" element={<Staffviewfood/>}/>
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
-         
+          
         </Routes>
       </BrowserRouter>
      
