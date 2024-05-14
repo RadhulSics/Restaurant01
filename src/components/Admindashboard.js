@@ -25,7 +25,7 @@ function Admindashboard() {
                   </Link>
                 </ul>
                 <ul>
-                  <Link className="dropdown-item" to="/admin/viewstafforder">
+                  <Link className="dropdown-item" to="/Stafforder">
                     Staff Orders
                   </Link>
                 </ul>
