@@ -20,12 +20,12 @@ function Admindashboard() {
               
               <ul className="dropdown-menu">
                 <ul>
-                  <Link className="dropdown-item" to="/admin/viewcustomerorder">
+                  <Link className="dropdown-item" to="/Customerorders">
                     Customer Orders
                   </Link>
                 </ul>
                 <ul>
-                  <Link className="dropdown-item" to="/admin/viewstafforder">
+                  <Link className="dropdown-item" to="/Stafforder">
                     Staff Orders
                   </Link>
                 </ul>

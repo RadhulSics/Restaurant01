@@ -33,7 +33,9 @@ import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
 import "./components/Payment.css"
 import ViewOrders from "./components/ViewOrders";
-
+import Customerorders from "./components/Customerorders";
+import "./components/Customerorders.css"
+import Stafforders from "./components/Stafforders";
 function App() {
   return (
    <div className="App">
@@ -61,7 +63,7 @@ function App() {
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
           <Route path="/Customerorders" element={<Customerorders/>}/>
-         
+          <Route path="/Stafforders" element={<Stafforders/>}/>
         </Routes>
       </BrowserRouter>
      
