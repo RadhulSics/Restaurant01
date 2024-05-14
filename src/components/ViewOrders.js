@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ViewOrders() {
   const [state, setState] = useState([]);
   const [deletedOrderIds, setDeletedOrderIds] = useState(() => {
-    // Initialize deletedOrderIds from local storage
+    
     return JSON.parse(localStorage.getItem("deletedOrderIds")) || [];
   });
   let custid = localStorage.getItem("custId");
@@ -13,7 +13,7 @@ function ViewOrders() {
   const fetchOrder = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/viewOrderDetails/${custid}`
+        `http://localhost:5000/viewOrder/${custid}`
       );
       console.log(response.data.result);
       setState(response.data.result);
