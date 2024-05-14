@@ -32,6 +32,9 @@ import "./components/Payment.css";
 import ViewOrders from "./components/ViewOrders";
 import ConfirmOrder from "./components/ConfirmOrder";
 import Staffvieworder from "./components/StaffviewOrder";
+import Customerorders from "./components/Customerorders"
+import "./components/Customerorders.css"
+import Stafforders from "./components/Stafforders"
 
 function App() {
   return (
@@ -60,10 +63,9 @@ function App() {
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/ConfirmOrder/:id" element={<ConfirmOrder />} />
           <Route path="/Staffvieworder" element={<Staffvieworder />} />
-          <Route
-            path="/Staffforgotpassword"
-            element={<Staffforgotpassword />}
-          />
+          <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
+          <Route path="/CustomerOrders" element={<Customerorders />} />
+          <Route path="/StaffOrders" element={<Stafforders />} />
         </Routes>
       </BrowserRouter>
     </div>
