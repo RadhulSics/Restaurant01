@@ -28,11 +28,10 @@ import Staffforgotpassword from "./components/StaffforgotPassword";
 import Staffslogin from "./components/StaffsLogin";
 import OrderNow from "./components/OrderNow";
 import Payment from "./components/Payment";
-import "./components/Payment.css"
+import "./components/Payment.css";
 import ViewOrders from "./components/ViewOrders";
 import ConfirmOrder from "./components/ConfirmOrder";
-import Staffvieworder from "./components/Staffvieworder";
-
+import Staffvieworder from "./components/StaffviewOrder";
 
 function App() {
   return (
@@ -54,13 +53,13 @@ function App() {
           <Route path="/Editfood" element={<Editfood />} />
           <Route path="/Editfooddetails/:id" element={<Editfooddetails />} />
           <Route path="/Ordernow/:id" element={<OrderNow />} />
-          <Route path="/Payment" element={<Payment/>} />
-          <Route path="/ViewOrders" element={<ViewOrders/>} />
+          <Route path="/Payment" element={<Payment />} />
+          <Route path="/ViewOrders" element={<ViewOrders />} />
           <Route path="/StaffsLogin" element={<Staffslogin />} />
           <Route path="/Staffviewfood" element={<Staffviewfood />} />
           <Route path="/StaffRegistration" element={<StaffRegistration />} />
           <Route path="/ConfirmOrder/:id" element={<ConfirmOrder />} />
-    <Route path="/Staffvieworder" element={<Staffvieworder/>}/>
+          <Route path="/Staffvieworder" element={<Staffvieworder />} />
           <Route
             path="/Staffforgotpassword"
             element={<Staffforgotpassword />}

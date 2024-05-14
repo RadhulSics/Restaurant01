@@ -1,29 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function OrderNow() {
-  
-  const foodid=useParams()
+  const { id } = useParams();
   const navigate = useNavigate();
 
-
   const [food, setFood] = useState({});
-
-
-
   const [order, setOrder] = useState({
-    userId: localStorage.getItem("userid"),
-    quantity:1,
-    
+    userId: localStorage.getItem("custId"),
+    quantity: 1,
     deliveryAddress: "",
-    foodid:foodid.id,
-    amount:0
+    foodid: id,
+    amount: 0,
   });
- const fetchFood = async () => {
+
+  const fetchFood = async () => {
     try {
-      const response = await axios.post(`http://localhost:5000/viewone/${foodid.id}`);
-      console.log("food",response);
+      const response = await axios.post(`http://localhost:5000/viewone/${id}`);
       setFood(response.data.data);
     } catch (error) {
       console.error("Error fetching food items:", error);
@@ -36,31 +30,21 @@ function OrderNow() {
 
   const handleChange = (e) => {
     setOrder({ ...order, [e.target.name]: e.target.value });
-
-
   };
-  
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
-    console.log(food.price,"hju",order.quantity);
-    order.amount = parseInt(food.price * order.quantity)
-    const result= await axios.post("http://localhost:5000/addOrder",order)
+    order.amount = parseInt(food.price) * parseInt(order.quantity);
+    const result = await axios.post("http://localhost:5000/addOrder", order);
     console.log("result",result);
     console.log("orders",order);
-
-    navigate("/Payment")
-    
-    
+    navigate("/Payment");
   };
 
   const handleCancel = () => {
     navigate("/Customerviewmenu");
   };
 
- 
-console.log("food id",foodid);
   return (
     <div
       style={{
@@ -85,31 +69,27 @@ console.log("food id",foodid);
           borderRadius: "5px",
         }}
       >
-        {/* {order.items.map((item) => ( */}
-          <div  style={{ marginBottom: "10px" }}>
-            <h4>Food: {food.foodname}</h4>
-            <h4>Price per item: ₹{food.price}</h4>
-            <label>Quantity:</label>
-            <input
-              type="number"
-              name="quantity"
-              value={order.quantity}
-              onChange={(e) =>
-                handleChange(e)
-              }
-            />
-          </div>
-        
+        <div style={{ marginBottom: "10px" }}>
+          <h4>Food: {food.foodname}</h4>
+          <h4>Price per item: ₹{food.price}</h4>
+          <label>Quantity:</label>
+          <input
+            type="number"
+            name="quantity"
+            value={order.quantity}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
         <label htmlFor="deliveryAddress">Delivery Address:</label>
         <input
           type="text"
           id="deliveryAddress"
           name="deliveryAddress"
           value={order.deliveryAddress}
-          onChange={(e) =>handleChange(e)}
+          onChange={(e) => handleChange(e)}
           required
         />
-        <h3>Total Amount: ₹{(parseInt(food.price)*parseInt(order.quantity))}</h3>
+        <h3>Total Amount: ₹{parseInt(food.price) * parseInt(order.quantity)}</h3>
         <button
           type="submit"
           style={{
@@ -118,11 +98,9 @@ console.log("food id",foodid);
             padding: "5px 10px",
             fontSize: "12px",
           }}
-          onClick={handleSubmit}
         >
           PAY NOW
         </button>
-
         <button
           type="button"
           onClick={handleCancel}
