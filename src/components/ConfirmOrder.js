@@ -41,7 +41,7 @@ function ConfirmOrder() {
       console.log("result", result);
       console.log("orders", order);
       alert("Order Confirmed");
-      navigate("/StaffviewOrder")
+      navigate("/Staffvieworder")
     } catch (error) {
       console.error("Error confirming order:", error);
       alert("Failed to confirm order");
@@ -49,7 +49,7 @@ function ConfirmOrder() {
   };
 
   const handleCancel = () => {
-    navigate("/Customerviewmenu");
+    navigate("/Staffviefood");
   };
 
   return (
