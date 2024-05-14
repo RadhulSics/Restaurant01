@@ -20,7 +20,7 @@ function Admindashboard() {
               
               <ul className="dropdown-menu">
                 <ul>
-                  <Link className="dropdown-item" to="/Customerorders">
+                  <Link className="dropdown-item" to="/CustomerOrderDetails">
                     Customer Orders
                   </Link>
                 </ul>

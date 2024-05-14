@@ -2,22 +2,23 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-function OrderNow() {
-  const { id } = useParams();
+function ConfirmOrder() {
+  const foodid = useParams();
   const navigate = useNavigate();
 
   const [food, setFood] = useState({});
   const [order, setOrder] = useState({
-    userId: localStorage.getItem("custId"),
+    userId: localStorage.getItem("userid"),
     quantity: 1,
-    deliveryAddress: "",
-    foodid: id,
+    foodid: foodid.id,
     amount: 0,
+    customername: "", // Adding customername field
+    date: new Date(), // Adding date field
   });
 
   const fetchFood = async () => {
     try {
-      const response = await axios.post(`http://localhost:5000/viewone/${id}`);
+      const response = await axios.post(`http://localhost:5000/viewone/${foodid.id}`);
       setFood(response.data.data);
     } catch (error) {
       console.error("Error fetching food items:", error);
@@ -34,15 +35,21 @@ function OrderNow() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    order.amount = parseInt(food.price) * parseInt(order.quantity);
-    const result = await axios.post("http://localhost:5000/addOrder", order);
-    console.log("result",result);
-    console.log("orders",order);
-    navigate("/Payment");
+    order.amount = parseInt(food.price * order.quantity);
+    try {
+      const result = await axios.post(`http://localhost:5000/staffaddorder/${order.userId}`, order);
+      console.log("result", result);
+      console.log("orders", order);
+      alert("Order Confirmed");
+      navigate("/Staffvieworder")
+    } catch (error) {
+      console.error("Error confirming order:", error);
+      alert("Failed to confirm order");
+    }
   };
 
   const handleCancel = () => {
-    navigate("/Customerviewmenu");
+    navigate("/Staffviefood");
   };
 
   return (
@@ -69,54 +76,38 @@ function OrderNow() {
           borderRadius: "5px",
         }}
       >
-        <div style={{ marginBottom: "10px" }}>
+        <div className="mb-3">
+          <label htmlFor="customername" className="form-label fw-semibold">Customer Name:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="customername"
+            name="customername"
+            placeholder="Enter Customer Name"
+            value={order.customername}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className="mb-3">
           <h4>Food: {food.foodname}</h4>
           <h4>Price per item: ₹{food.price}</h4>
           <label>Quantity:</label>
           <input
             type="number"
+            className="form-control"
             name="quantity"
             value={order.quantity}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <label htmlFor="deliveryAddress">Delivery Address:</label>
-        <input
-          type="text"
-          id="deliveryAddress"
-          name="deliveryAddress"
-          value={order.deliveryAddress}
-          onChange={(e) => handleChange(e)}
-          required
-        />
         <h3>Total Amount: ₹{parseInt(food.price) * parseInt(order.quantity)}</h3>
-        <button
-          type="submit"
-          style={{
-            backgroundColor: "green",
-            color: "white",
-            padding: "5px 10px",
-            fontSize: "12px",
-          }}
-        >
-          PAY NOW
-        </button>
-        <button
-          type="button"
-          onClick={handleCancel}
-          style={{
-            backgroundColor: "red",
-            color: "white",
-            padding: "5px 10px",
-            fontSize: "12px",
-            marginTop: "10px",
-          }}
-        >
-          CANCEL
-        </button>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-between">
+          <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
+          <button type="submit" className="btn btn-success">Confirm Order</button>
+        </div>
       </form>
     </div>
   );
 }
 
-export default OrderNow;
+export default ConfirmOrder;

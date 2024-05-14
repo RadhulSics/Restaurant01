@@ -78,12 +78,12 @@ function Nav() {
               ) : staffid ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/staffvieworders">
+                    <Link className="nav-link" to="/StaffviewOrder">
                       View Orders
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/staffviewfood">
+                    <Link className="nav-link" to="/Staffviewfood">
                       Menu Items
                     </Link>
                   </li>
