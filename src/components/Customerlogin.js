@@ -17,7 +17,7 @@ function Customerlogin() {
     e.preventDefault();
     const result = await axios.post(
       "http://localhost:5000/customerlogin",
-      data
+      data 
     );
     console.log(result);
     if (result.data.status === 200) {
