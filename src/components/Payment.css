@@ -1,59 +1,58 @@
 
-  .payment-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
   
-    
-  }
+}
+
+.payment-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.payment-form {
+  width: 300px;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.form-group {
+  margin-bottom: 1rem;
   
-  .payment-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-pay,
+.btn-cancel {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-pay {
+  background-color: #4c90af;
+  color: rgb(25, 13, 13);
+}
+
+.btn-cancel {
+  background-color: #36ebf4;
+  color: rgb(14, 12, 12);
+}
+h1{
+  color: #000;
   
-  .payment-form {
-    width: 300px;
-    border: 3px solid rgba(0, 0, 0, 0);
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-    
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  .btn-group {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .btn-pay,
-  .btn-cancel {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .btn-pay {
-    background-color: #4c90af;
-    color: rgb(25, 13, 13);
-  }
-  
-  .btn-cancel {
-    background-color: #36ebf4;
-    color: rgb(14, 12, 12);
-  }
-  h1{
-    color: #000;
-    
-  }
-  
+}

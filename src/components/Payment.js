@@ -57,9 +57,9 @@ function Payment() {
   const handleCancel = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/cancelOrder", { state: state })
+      .post("http://localhost:5000/cancelOrder", { orderIds: state.map((order) => order._id) })
       .then((res) => {
-        alert(res.data.msg);
+        alert(res.data.message);
         navigate("/Customerviewmenu");
       })
       .catch((err) => {
