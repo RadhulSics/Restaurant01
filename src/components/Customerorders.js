@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
@@ -13,6 +12,7 @@ const Customerorders = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get("http://localhost:5000/viewCustomerOrders");
+      console.log(response.data.result); // Log the orders data
       setOrders(response.data.result);
     } catch (error) {
       console.error('Failed to fetch orders', error);
@@ -26,12 +26,16 @@ const Customerorders = () => {
         {orders.map(order => (
           <div className="order-container" key={order._id}>
             <div className="order-details">
-              <p className="customer-name">Customer Name: {order.userId.firstname} {order.userId.lastname}</p>
+              <p className="customer-name">
+                Customer Name: {order.userId ? `${order.userId.firstname} ${order.userId.lastname}` : 'N/A'}
+              </p>
               <p>Delivery Address: {order.deliveryAddress}</p>
               <p>Food Name: {order.foodid ? order.foodid.foodname : "N/A"}</p>
               <p>Quantity: <span className="quantity">{order.quantity}</span></p>
               <p>Amount: <span className="amount">₹{order.amount}</span></p>
-              <p className={`payment-status ${order.paymentstatus ? 'paid' : 'pending'}`}>Payment Status: {order.paymentstatus ? 'Paid' : 'Pending'}</p>
+              <p className={`payment-status ${order.paymentstatus ? 'paid' : 'pending'}`}>
+                Payment Status: {order.paymentstatus ? 'Paid' : 'Pending'}
+              </p>
               <p>Order ID: {order._id}</p>
             </div>
           </div>
@@ -42,5 +46,3 @@ const Customerorders = () => {
 };
 
 export default Customerorders;
-
-

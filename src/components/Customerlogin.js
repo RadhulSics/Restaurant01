@@ -15,21 +15,24 @@ function Customerlogin() {
 
   async function submit(e) {
     e.preventDefault();
-    const result = await axios.post(
-      "http://localhost:5000/customerlogin",
-      data
-    );
-    console.log(result);
-    if (result.data.status === 200) {
-      alert("Login successful");
-      console.log("user data", result.data.data);
-      localStorage.setItem("custId", result.data.data._id);
-      localStorage.setItem("fname", result.data.data.firstname);
-      navigate("/Customerviewmenu");
-    } else {
-      alert("Login failed");
+    try {
+      const result = await axios.post(
+        "http://localhost:5000/customerlogin",
+        data
+      );
+      console.log(result.data);
+      if (result.data.status === 200) {
+        alert("Login successful");
+        localStorage.setItem("custId", result.data.data._id);
+        localStorage.setItem("fname", result.data.data.firstname);
+        navigate("/Customerviewmenu");
+      } else {
+        alert("Login failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Login failed. Please try again.");
     }
-    console.log("result", result);
   }
 
   return (

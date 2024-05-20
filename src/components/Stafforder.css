@@ -1,0 +1,38 @@
+
+.staff-orders-container {
+    margin: 20px;
+  }
+  
+  .staff-orders-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .staff-order-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ece5e5;
+  }
+  
+  .staff-order-item strong {
+    color: #cc1818;
+  }
+  
+  .customer-name {
+    color: #ff6a00; 
+  }
+  
+  .food-name {
+    color: #28a745; 
+  }
+  
+  .quantity {
+    color: #dc3545; 
+  }
+  
+  .date {
+    color: #ffff07; 
+  }
+  

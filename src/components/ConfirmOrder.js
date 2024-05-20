@@ -12,8 +12,8 @@ function ConfirmOrder() {
     quantity: 1,
     foodid: foodid.id,
     amount: 0,
-    customername: "", // Adding customername field
-    date: new Date(), // Adding date field
+    customername: "", 
+    date: new Date(), 
   });
 
   const fetchFood = async () => {
