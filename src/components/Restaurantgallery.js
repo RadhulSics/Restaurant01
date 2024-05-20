@@ -87,7 +87,7 @@ function Restaurantgallery() {
       </div>
 
       <footer style={{ textAlign: "center", padding: "1rem", background: "#f8f9fa" }}>
-        &copy; 2024 Your Restaurant Name. All rights reserved.
+        &copy; 2024 UDHITH AND Co. RESTAURANT. All rights reserved.
       </footer>
 
       <div style={{ textAlign: "center", padding: "1rem", background: "#e9ecef" }}>
