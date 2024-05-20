@@ -34,7 +34,8 @@ import ConfirmOrder from "./components/ConfirmOrder";
 import Staffvieworder from "./components/StaffviewOrder";
 import Customerorders from "./components/Customerorders"
 import "./components/Customerorders.css"
-import Stafforders from "./components/Stafforders"
+import Stafforders from "./components/Stafforders";
+import"./components/Stafforder.css"
 
 function App() {
   return (
@@ -65,7 +66,7 @@ function App() {
           <Route path="/Staffvieworder" element={<Staffvieworder />} />
           <Route path="/Staffforgotpassword" element={<Staffforgotpassword/>}/>
           <Route path="/CustomerOrders" element={<Customerorders />} />
-          <Route path="/StaffOrders" element={<Stafforders />} />
+          <Route path="/Stafforders" element={<Stafforders />} />
         </Routes>
       </BrowserRouter>
     </div>
