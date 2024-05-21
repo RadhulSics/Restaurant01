@@ -11,8 +11,9 @@ const Customerorders = () => {
 
   const fetchOrders = async () => {
     try {
+      
       const response = await axios.get("http://localhost:5000/viewCustomerOrders");
-      console.log(response.data.result); // Log the orders data
+      console.log(response.data.result); 
       setOrders(response.data.result);
     } catch (error) {
       console.error('Failed to fetch orders', error);

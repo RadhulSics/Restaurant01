@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Payment() {
+  const {id}=useParams()
   const navigate = useNavigate();
   const [cardInfo, setCardInfo] = useState({
     number: "",
@@ -39,8 +40,9 @@ function Payment() {
       cardInfo.expiry.length === 7 &&
       cardInfo.cvc.length === 3
     ) {
+      console.log("o id",id);
       axios
-        .post("http://localhost:5000/updatePaymentStatus", { orderIds: state.map((order) => order._id) })
+        .post("http://localhost:5000/updatePaymentStatus", { orderId:id})
         .then((res) => {
           alert(res.data.message);
           navigate("/Customerviewmenu");

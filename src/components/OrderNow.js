@@ -38,7 +38,8 @@ function OrderNow() {
     const result = await axios.post("http://localhost:5000/addOrder", order);
     console.log("result",result);
     console.log("orders",order);
-    navigate("/Payment");
+    console.log("id:",result.data.result._id);
+    navigate(`/Payment/${result.data.result._id}`);
   };
 
   const handleCancel = () => {
