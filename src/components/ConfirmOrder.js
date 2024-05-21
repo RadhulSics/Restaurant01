@@ -49,7 +49,7 @@ function ConfirmOrder() {
   };
 
   const handleCancel = () => {
-    navigate("/Staffviefood");
+    navigate("/Staffviewfood");
   };
 
   return (
